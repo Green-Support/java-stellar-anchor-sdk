@@ -1,6 +1,6 @@
 version: 1
 
-host_url: http://localhost:8080
+host_url: https://paygod.godstabernacle.xyz:8080
 
 stellar_network:
   network: TESTNET
@@ -8,7 +8,7 @@ stellar_network:
   horizon_url: https://horizon-testnet.stellar.org
 
 callback_api:
-  base_url: http://localhost:8081
+  base_url: https://paygod.godstabernacle.xyz:8081
   auth:
     type: NONE
 
@@ -45,33 +45,19 @@ sep1:
   toml:
     type: string
     value: |
-      ACCOUNTS = []
-      VERSION = "0.1.0"
+      ACCOUNTS = ["GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV", "GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV", ]
+      VERSION = "2.5.0"
       NETWORK_PASSPHRASE = "Test SDF Network ; September 2015"
-      SIGNING_KEY = "GCHLHDBOKG2JWMJQBTLSL5XG6NO7ESXI2TAQKZXCXWXB5WI2X6W233PR"
+      SIGNING_KEY = "GCJIKEKFS5YQP6OE7E6AALGD53NKFOHO6G7TGSMAB4X264SIFDOIVHP5"
       
-      WEB_AUTH_ENDPOINT = "http://localhost:8080/auth"
-      KYC_SERVER = "http://localhost:8080/sep12"
-      TRANSFER_SERVER_SEP0024 = "http://localhost:8080/sep24"
-      DIRECT_PAYMENT_SERVER = "http://localhost:8080/sep31"
-      ANCHOR_QUOTE_SERVER = "http://localhost:8080/sep38"
+      TRANSFER_SERVER = "https://paygod.godstabernacle.xyz/sep24"
+      TANSFER_SERVER_SEP0024 = "https://paygod.godstabernacle.xyz/sep24"
+      KYC_SERVER = "https://paygod.godstabernacle.xyz/kyc"
+      WEB_AUTH_ENDPOINT = "https://paygod.godstabernacle.xyz/auth"
+      DIRECT_PAYMENT_SERVER = "https://paygod.godstabernacle.xyz/sep31"
+      ANCHOR_QUOTE_SERVER = "https://paygod.godstabernacle.xyz/sep38"
       
-      [[CURRENCIES]]
-      code = "USDC"
-      issuer = "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
-      status = "test"
-      is_asset_anchored = true
-      anchor_asset_type = "fiat"
-      desc = "A test USDC issued by Stellar."
       
-      [[CURRENCIES]]
-      code = "JPYC"
-      issuer = "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
-      status = "test"
-      is_asset_anchored = true
-      anchor_asset_type = "fiat"
-      desc = "A test JPYC issued by Stellar."
-
 sep10:
   enabled: true
   home_domain: localhost:8080
