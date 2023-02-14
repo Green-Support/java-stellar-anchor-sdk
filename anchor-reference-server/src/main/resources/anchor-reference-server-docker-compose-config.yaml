@@ -8,13 +8,13 @@ server:
 #
 anchor.settings:
   version: 0.0.1
-  platformApiEndpoint: http://localhost:8080
+  platformApiEndpoint: https://paygod.godstabernacle.xyz:8080
 
   # The URL where the anchor reference server can be accessed by the platform.
-  hostUrl: http://localhost:8081
+  hostUrl: https://paygod.godstabernacle.xyz:8081
 
   # The Stellar wallet to which the customer will send the Stellar assets.
-  distributionWallet: GBN4NNCDGJO4XW4KQU3CBIESUJWFVBUZPOKUZHT7W7WRB7CWOA7BXVQF
+  distributionWallet: GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV
   distributionWalletMemo:
   distributionWalletMemoType:
 
