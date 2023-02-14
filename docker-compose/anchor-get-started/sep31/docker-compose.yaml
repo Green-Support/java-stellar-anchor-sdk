@@ -6,8 +6,8 @@ services:
     environment:
       - stellar_anchor_config=file:/config/anchor-config.yaml
       # secrets
-      - secret.data.username=postgres
-      - secret.data.password=password
+      - secret.data.username=anchoruser
+      - secret.data.password=Edenlife247
       - secret.platform_api.auth_secret=myAnchorToPlatformSecret
       - secret.callback_api.auth_secret=myPlatformToAnchorSecret
       - secret.sep10.jwt_secret=secret_sep10_secret
