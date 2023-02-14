@@ -23,21 +23,10 @@ anchor.settings:
 #
 # When the receiving part decodes the incoming request token, it needs to verify if the token is still valid (and not expired).
 integration-auth:
-  #
-  # authType: used to determine how the authentication will happen between Anchor and Platform. Can be one of the following:
-  #     NONE: no authentication is used
-  #     API_KEY: the authentication is done using an API key added to the `X-Api-Key` header.
-  #     JWT_TOKEN: the authentication is done using a JWT token added to the `Authorization` header. this token is generated from the secret key.
-  authType: NONE
-  # CallbackAPI requests (`Platform->Anchor`) will contain an authentication header whose token was built using this
-  # secret. The Anchor Backend will also store this same secret and use it to decode the incoming token to verify it
-  # came from the Platform.
-  platformToAnchorSecret:
-  # PlatformAPI requests (`Anchor->Platform`) will contain an authentication header whose token was built using this
-  # secret. The Platform Server will use this secret to decode the incoming token to verify it came from the Anchor.
-  anchorToPlatformSecret:
-  # Expiration time, in milliseconds, that will be used to build and validate the JWT tokens
-  expirationMilliseconds:
+  authType: JWT_TOKEN
+  platformToAnchorSecret: myPlatformToAnchorSecret
+  anchorToPlatformSecret: myAnchorToPlatformSecret
+  expirationMilliseconds: 30000
 
 event:
   # The listener type. values: [kafka, sqs, amqp]
@@ -86,13 +75,13 @@ spring.mvc.converters.preferred-json-mapper: gson
 #
 # Spring Data JDBC settings for SQLite
 #
-#spring.jpa.database-platform=org.stellar.anchor.reference.sqlite.SQLiteDialect
-#spring.jpa.hibernate.ddl-auto=update
-#spring.jpa.generate-ddl=true
-#spring.datasource.url=jdbc:sqlite:anchor-reference-server.db
-#spring.datasource.driver-class-name=org.sqlite.JDBC
-#spring.datasource.username=admin
-#spring.datasource.password=admin
+spring.jpa.database-platform=org.stellar.anchor.reference.sqlite.SQLiteDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.generate-ddl=true
+spring.datasource.url=jdbc:sqlite:anchor-reference-server.db
+spring.datasource.driver-class-name=org.sqlite.JDBC
+spring.datasource.username=admin
+spring.datasource.password=admin
 
 #
 # Spring Data JDBC settings for Postgres

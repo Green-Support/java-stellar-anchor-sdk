@@ -59,7 +59,7 @@ sep12:
   enabled: true
 
 sep24:
-  enabled: true
+  enabled: false
 
 sep31:
   enabled: true
