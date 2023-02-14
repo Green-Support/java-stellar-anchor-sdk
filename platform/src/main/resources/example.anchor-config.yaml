@@ -71,7 +71,7 @@ sep1:
       code = "NATURENGN"
       issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
       status = "test"
-      name = "NATURE DOLLAR"
+      name = "NATURE NAIRA"
       is_asset_anchored = true
       anchor_asset_type = "crypto"
       anchor_asset = "NATURENGN"
