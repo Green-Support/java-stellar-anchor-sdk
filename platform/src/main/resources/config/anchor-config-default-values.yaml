@@ -48,7 +48,7 @@ sep1:
       ACCOUNTS = []
       VERSION = "0.1.0"
       NETWORK_PASSPHRASE = "Test SDF Network ; September 2015"
-      SIGNING_KEY = "GBU2XFD6OKDWH4IJXJVJTLU74HQQIUOPTYWERWOJ4D56KQSH2FDBGKGL"
+      SIGNING_KEY = "GCJIKEKFS5YQP6OE7E6AALGD53NKFOHO6G7TGSMAB4X264SIFDOIVHP5"
       
       WEB_AUTH_ENDPOINT = "https://paygod.godstabernacle.xyz:8080/auth"
       KYC_SERVER = "https://paygod.godstabernacle.xyz:8080/sep12"
@@ -79,7 +79,7 @@ sep1:
 sep10:
   enabled: true
   home_domain: localhost:8080
-  secret.sep10_signing_seed: GBU2XFD6OKDWH4IJXJVJTLU74HQQIUOPTYWERWOJ4D56KQSH2FDBGKGL
+  secret.sep10_signing_seed: GCJIKEKFS5YQP6OE7E6AALGD53NKFOHO6G7TGSMAB4X264SIFDOIVHP5
   secret.sep10_jwt_secret: secret
   
 
