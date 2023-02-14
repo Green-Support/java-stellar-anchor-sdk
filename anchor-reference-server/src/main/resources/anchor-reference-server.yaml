@@ -8,13 +8,13 @@ server:
 #
 anchor.settings:
   version: 0.0.1
-  platformApiEndpoint: http://localhost:8080
+  platformApiEndpoint: https://paygod.godstabernacle.xyz:8080
 
   # The URL where the anchor reference server can be accessed by the platform.
-  hostUrl: http://localhost:8081
+  hostUrl: https://paygod.godstabernacle.xyz:8081
 
   # The Stellar wallet to which the customer will send the Stellar assets.
-  distributionWallet: GBN4NNCDGJO4XW4KQU3CBIESUJWFVBUZPOKUZHT7W7WRB7CWOA7BXVQF
+  distributionWallet: GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV
   distributionWalletMemo:
   distributionWalletMemoType:
 
@@ -85,11 +85,11 @@ spring.datasource.password=admin
 
 #
 # Spring Data JDBC settings for Postgres
-#
-#spring.jpa.database: POSTGRESQL
-#spring.jpa.show-sql: false
-#spring.datasource.driver-class-name: org.postgresql.Driver
-#spring.datasource.url: jdbc:postgresql://localhost:5432/anchorplatform
-#spring.datasource.username: anchorplatform
-#spring.datasource.password: <PASSWORD>
-#spring.mvc.converters.preferred-json-mapper: gson
+
+spring.jpa.database: POSTGRESQL
+spring.jpa.show-sql: false
+spring.datasource.driver-class-name: org.postgresql.Driver
+spring.datasource.url: jdbc:postgresql://localhost:5432/anchorplatform
+spring.datasource.username: anchoruser
+spring.datasource.password: Edenlife247
+spring.mvc.converters.preferred-json-mapper: gson
