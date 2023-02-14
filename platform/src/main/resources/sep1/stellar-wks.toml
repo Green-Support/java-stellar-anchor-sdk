@@ -1,7 +1,7 @@
 VERSION = "2.5.0"
 ACCOUNTS = ACCOUNTS = [ "GAWTB6UKQ6DJSMAPTNLB2TJVCKWPCT4NHLAFPC5EGOZVXK6XF47UGSMG", "GBXGB4HLOX6B7G7XAPCDRRTFZCWA6JOO4YT42JXWQJHNP2MLIURCKMPJ", "GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV",]
 NETWORK_PASSPHRASE = "Test SDF Network ; September 2015"
-SIGNING_KEY = "GBU2XFD6OKDWH4IJXJVJTLU74HQQIUOPTYWERWOJ4D56KQSH2FDBGKGL"
+SIGNING_KEY = "GCJIKEKFS5YQP6OE7E6AALGD53NKFOHO6G7TGSMAB4X264SIFDOIVHP5"
 
 WEB_AUTH_ENDPOINT = "https://paygod.godstabernacle.xyz/auth"
 KYC_SERVER = "https://paygod.godstabernacle.xyz/kyc"
@@ -31,11 +31,11 @@ anchor_asset = "NATURENGN"
 redemption_instructions = "Get your asset via our wallets"
 
 [DOCUMENTATION]
-ORG_NAME = "Global Fund 4 Nature"
-ORG_URL = "https://www.gf4n.xyz"
-ORG_LOGO = "https://www.gf4n.xyz/logo"
+ORG_NAME = "God's Tabernacle"
+ORG_URL = "https://www.godstabernacle.xyz"
+ORG_LOGO = "https://www.godstabernacle.xyz/logo"
 ORG_DESCRIPTION = "Recreo; Replete Terram"
 ORG_TWITTER = "nature2471"
 ORG_GITHUB = "nature-smartchain"
-ORG_OFFICIAL_EMAIL = "info@gf4n.xyz"
-ORG_SUPPORT_EMAIL = "support@gf4n.xyz"
+ORG_OFFICIAL_EMAIL = "info@godstabernacle.xyz"
+ORG_SUPPORT_EMAIL = "support@godstabernacle.xyz"
