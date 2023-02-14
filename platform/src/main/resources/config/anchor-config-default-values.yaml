@@ -22,23 +22,23 @@ logging:
   level: WARN
   stellar_level: INFO
 
-data:
-  type: sqlite
-  url: jdbc:sqlite:anchor-platform.db
-  initial_connection_pool_size: 2
-  max_active_connections: 10
-  flyway_enabled: true
-  ddl_auto: update
-
 #data:
-#  type: postgres
-#  url: jdbc:postgresql://localhost:5432/anchorplatform
-#  username: anchorplatform
-#  password:
-#  initial_connection_pool_size: 3
+#  type: sqlite
+#  url: jdbc:sqlite:anchor-platform.db
+#  initial_connection_pool_size: 2
 #  max_active_connections: 10
 #  flyway_enabled: true
 #  ddl_auto: update
+
+data:
+  type: postgres
+  url: jdbc:postgresql://localhost:5432/anchorplatform
+  username: anchoruser
+  password: Edenlife247
+  initial_connection_pool_size: 3
+  max_active_connections: 10
+  flyway_enabled: true
+  ddl_auto: update
 
 sep1:
   enabled: true
