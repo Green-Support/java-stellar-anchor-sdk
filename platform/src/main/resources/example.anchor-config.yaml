@@ -57,18 +57,49 @@ sep1:
       DIRECT_PAYMENT_SERVER = "https://paygod.godstabernacle.xyz/sep31"
       ANCHOR_QUOTE_SERVER = "https://paygod.godstabernacle.xyz/sep38"
       
+      [[CURRENCIES]]
+      code = "NATUREUSD"
+      issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
+      status = "test"
+      name = "NATURE DOLLAR"
+      is_asset_anchored = true
+      anchor_asset_type = "crypto"
+      anchor_asset = "NATUREUSD"
+      redemption_instructions = "Get your asset via our wallets"
+      
+      [[CURRENCIES]]
+      code = "NATURENGN"
+      issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
+      status = "test"
+      name = "NATURE DOLLAR"
+      is_asset_anchored = true
+      anchor_asset_type = "crypto"
+      anchor_asset = "NATURENGN"
+      redemption_instructions = "Get your asset via our wallets"
+
+      [DOCUMENTATION]
+      ORG_NAME = "Global Fund 4 Nature"
+      ORG_URL = "https://www.gf4n.xyz"
+      ORG_LOGO = "https://www.gf4n.xyz/logo"
+      ORG_DESCRIPTION = "Recreo; Replete Terram"
+      ORG_TWITTER = "nature2471"
+      ORG_GITHUB = "nature-smartchain"
+      ORG_OFFICIAL_EMAIL = "info@gf4n.xyz"
+      ORG_SUPPORT_EMAIL = "support@gf4n.xyz"
+
+      
       
 sep10:
   enabled: true
-  home_domain: localhost:8080
+  home_domain: paygod.godstabernacle.xyz:8080
 
 sep12:
   enabled: true
 
 sep24:
-  enabled: true
+  enabled: false
   interactive_url:
-    base_url: http://localhost:8091/sep24/interactive
+    base_url: https://paygod.godstabernacle.xyz:8091/sep24/interactive
 
 sep31:
   enabled: true
@@ -106,33 +137,33 @@ assets:
       "assets": [
         {
           "schema": "stellar",
-          "code": "USDC",
-          "issuer": "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
-          "distribution_account": "GBN4NNCDGJO4XW4KQU3CBIESUJWFVBUZPOKUZHT7W7WRB7CWOA7BXVQF",
-          "significant_decimals": 2,
+          "code": "NATUREUSD",
+          "issuer": "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
+          "distribution_account": "GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV",
+          "significant_decimals": 4,
           "deposit": {
             "enabled": true,
             "fee_minimum": 0,
-            "fee_percent": 0,
+            "fee_percent": 1,
             "min_amount": 1,
             "max_amount": 1000000
           },
           "withdraw": {
             "enabled": true,
             "fee_fixed": 0,
-            "fee_percent": 0,
+            "fee_percent": 1,
             "min_amount": 1,
             "max_amount": 1000000
           },
           "send": {
             "fee_fixed": 0,
-            "fee_percent": 0,
+            "fee_percent": 1,
             "min_amount": 1,
             "max_amount": 1000000
           },
           "sep31": {
             "quotes_supported": true,
-            "quotes_required": false,
+            "quotes_required": true,
             "sep12": {
               "sender": {
                 "types": {
@@ -187,54 +218,54 @@ assets:
         },
         {
           "schema": "stellar",
-          "code": "JPYC",
-          "issuer": "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
-          "distribution_account": "GBN4NNCDGJO4XW4KQU3CBIESUJWFVBUZPOKUZHT7W7WRB7CWOA7BXVQF",
+          "code": "NATURENGN",
+          "issuer": "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
+          "distribution_account": "GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV",
           "significant_decimals": 4,
           "deposit": {
             "enabled": true,
             "fee_minimum": 0,
-            "fee_percent": 0,
+            "fee_percent": 1,
             "min_amount": 1,
             "max_amount": 1000000
           },
           "withdraw": {
             "enabled": true,
             "fee_fixed": 0,
-            "fee_percent": 0,
+            "fee_percent": 1,
             "min_amount": 1,
             "max_amount": 1000000
           },
           "send": {
             "fee_fixed": 0,
-            "fee_percent": 0,
+            "fee_percent": 1,
             "min_amount": 1,
             "max_amount": 1000000
           },
           "sep31": {
             "quotes_supported": true,
-            "quotes_required": false,
+            "quotes_required": true,
             "sep12": {
               "sender": {
                 "types": {
                   "sep31-sender": {
-                    "description": "U.S. citizens limited to sending payments of less than $10,000 in value"
+                    "description": "Nigerian citizens limited to sending payments of less than $10,000 in value"
                   },
                   "sep31-large-sender": {
-                    "description": "U.S. citizens that do not have sending limits"
+                    "description": "Nigeian citizens that do not have sending limits"
                   },
                   "sep31-foreign-sender": {
-                    "description": "non-U.S. citizens sending payments of less than $10,000 in value"
+                    "description": "non-Nigerian citizens sending payments of less than $10,000 in value"
                   }
                 }
               },
               "receiver": {
                 "types": {
                   "sep31-receiver": {
-                    "description": "U.S. citizens receiving JPY"
+                    "description": "Nigerian citizens receiving NGN"
                   },
                   "sep31-foreign-receiver": {
-                    "description": "non-U.S. citizens receiving JPY"
+                    "description": "non-Nigerian citizens receiving NGN"
                   }
                 }
               }
@@ -272,27 +303,27 @@ assets:
           "deposit": {
             "enabled": true,
             "fee_minimum": 0,
-            "fee_percent": 0,
-            "min_amount": 0,
+            "fee_percent": 1,
+            "min_amount": 1,
             "max_amount": 10000
           },
           "withdraw": {
             "enabled": true,
             "fee_fixed": 0,
-            "fee_percent": 0,
-            "min_amount": 0,
+            "fee_percent": 1,
+            "min_amount": 1,
             "max_amount": 10000
           },
           "send": {
             "fee_fixed": 0,
-            "fee_percent": 0,
-            "min_amount": 0,
+            "fee_percent": 1,
+            "min_amount": 1,
             "max_amount": 10000
           },
           "sep38": {
             "exchangeable_assets": [
-              "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
-              "stellar:JPYC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+              "stellar:NATUREUSD:"GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
+              "stellar:NATURENGN:"GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
             ],
             "country_codes": [
               "USA"
