@@ -5,7 +5,7 @@ logging:
   stellar_level: DEBUG
 
 callback_api:
-  base_url: https://paygod.godstabernacle.xyz:8081
+  base_url: http://localhost:8081
   auth:
     type: none
 
@@ -28,12 +28,12 @@ sep1:
       VERSION = "2.5.0"
       NETWORK_PASSPHRASE = "Test SDF Network ; September 2015"
       SIGNING_KEY = "GCJIKEKFS5YQP6OE7E6AALGD53NKFOHO6G7TGSMAB4X264SIFDOIVHP5"
-      TRANSFER_SERVER = "https://paygod.godstabernacle.xyz/sep24"
-      TRANSFER_SERVER_SEP0024 = "https://paygod.godstabernacle.xyz/sep24"
-      KYC_SERVER = "https://paygod.godstabernacle.xyz/kyc"
-      WEB_AUTH_ENDPOINT = "https://paygod.godstabernacle.xyz/auth"
-      DIRECT_PAYMENT_SERVER = "https://paygod.godstabernacle.xyz/sep31"
-      ANCHOR_QUOTE_SERVER = "https://paygod.godstabernacle.xyz/sep38"
+      TRANSFER_SERVER = "http://localhost:8080/sep24"
+      TRANSFER_SERVER_SEP0024 = "http://localhost:8080/sep24"
+      KYC_SERVER = "http://localhost:8080/kyc"
+      WEB_AUTH_ENDPOINT = "http://localhost:8080/auth"
+      DIRECT_PAYMENT_SERVER = "http://localhost:8080/sep31"
+      ANCHOR_QUOTE_SERVER = "http://localhost:8080/sep38"
 
       [[CURRENCIES]]
       code = "NATUREUSD"
@@ -69,7 +69,7 @@ sep1:
 
 sep10:
   enabled: true
-  home_domain: paygod.godstabernacle.xyz:8080
+  home_domain: localhost:8080
 
 sep12:
   enabled: true

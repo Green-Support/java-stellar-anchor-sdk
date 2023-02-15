@@ -8,10 +8,10 @@ sep1:
       VERSION = "2.5.0"
       NETWORK_PASSPHRASE = "Test SDF Network ; September 2015"
       SIGNING_KEY = "GCJIKEKFS5YQP6OE7E6AALGD53NKFOHO6G7TGSMAB4X264SIFDOIVHP5"
-      KYC_SERVER = "https://paygod.godstabernacle.xyz/kyc"
-      WEB_AUTH_ENDPOINT = "https://paygod.godstabernacle.xyz/auth"
-      DIRECT_PAYMENT_SERVER = "https://paygod.godstabernacle.xyz/sep31"
-      ANCHOR_QUOTE_SERVER = "https://paygod.godstabernacle.xyz/sep38"
+      KYC_SERVER = "http://localhost:8080/kyc"
+      WEB_AUTH_ENDPOINT = "http://localhost:8080/auth"
+      DIRECT_PAYMENT_SERVER = "http://localhost:8080/sep31"
+      ANCHOR_QUOTE_SERVER = "http://localhost:8080/sep38"
 
       
      [[CURRENCIES]]
