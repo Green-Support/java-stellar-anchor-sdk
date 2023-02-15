@@ -76,13 +76,13 @@ spring.mvc.converters.preferred-json-mapper: gson
 #
 # Spring Data JDBC settings for SQLite
 
-spring.jpa.database-platform=org.stellar.anchor.reference.sqlite.SQLiteDialect
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.generate-ddl=true
-spring.datasource.url=jdbc:sqlite:anchor-reference-server.db
-spring.datasource.driver-class-name=org.sqlite.JDBC
-spring.datasource.username=admin
-spring.datasource.password=admin
+#spring.jpa.database-platform=org.stellar.anchor.reference.sqlite.SQLiteDialect
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.generate-ddl=true
+#spring.datasource.url=jdbc:sqlite:anchor-reference-server.db
+#spring.datasource.driver-class-name=org.sqlite.JDBC
+#spring.datasource.username=admin
+#spring.datasource.password=admin
 
 #
 # Spring Data JDBC settings for Postgres
