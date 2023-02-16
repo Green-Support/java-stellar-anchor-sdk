@@ -9,7 +9,7 @@ ANCHOR_QUOTE_SERVER = "https://paygod.godstabernacle.xyz:8080/sep38"
 [[CURRENCIES]]
 code = "NATUREUSD"
 issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
-home_domain = "paygod.godstabernacle.xyz"
+homedomain = "paygod.godstabernacle.xyz"
 status = "test"
 name = "NATURE DOLLAR"
 is_asset_anchored = true

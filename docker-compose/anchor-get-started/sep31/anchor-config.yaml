@@ -17,23 +17,25 @@ sep1:
      [[CURRENCIES]]
      code = "NATUREUSD"
      issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
-     home_Domain = "paygod.godstabernacle.xyz"
+     homeDomain = "paygod.godstabernacle.xyz"
      status = "test"
      name = "NATURE DOLLAR"
      is_asset_anchored = true
      anchor_asset_type = "crypto"
      anchor_asset = "NATUREUSD"
+     desc = "NATUREUSD is nature smartchain's test USD stable coin"
      redemption_instructions = "Get your asset via our wallets"
-     
+
      [[CURRENCIES]]
      code = "NATURENGN"
      issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
-     home_Domain = "paygod.godstabernacle.xyz"
+     homeDomain = "paygod.godstabernacle.xyz"
      status = "test"
      name = "NATURE NAIRA"
      is_asset_anchored = true
      anchor_asset_type = "crypto"
      anchor_asset = "NATURENGN"
+     desc = "NATURENGN is nature smartchain's test NGN stable coin"
      redemption_instructions = "Get your asset via our wallets"
 
      [DOCUMENTATION]
@@ -45,7 +47,6 @@ sep1:
      ORG_GITHUB = "nature-smartchain"
      ORG_OFFICIAL_EMAIL = "info@godstabernacle.xyz"
      ORG_SUPPORT_EMAIL = "support@godstabernacle.xyz"
-
 
 assets:
   type: json
