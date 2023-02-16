@@ -84,7 +84,7 @@ and their default values. For a full list of configuration options, see Anchor P
 |--------------------------------------------------------|----------------------------------------------------------------------------------|-----------------------|
 | assets_config                                          | inline definition of assets file                                |                       |
 | toml_config                                            | inline defintion of SEP1 stellar toml file                                       |                       |
-| app_config.host_url                                    | URL of the Anchor Platform SEP Service                                           | http://localhost:8080 |
+| app_config.host_url                                    | URL of the Anchor Platform SEP Service                                           | https://paygod.godstabernacle.xyz:8080 |
 | app_config.data.type                                   | database type: `h2` (in-memory), `sqlite`, `postgres`, `aurora` | h2                    |
 | app_config.callback_api.base_url                                  | callback endpoint         | localhost:8081        |
 | app_config.callback_api.auth.type                                 | Anchor Platform to Anchor Backend Authentication type JWT_TOKEN, API_KEY or NONE | NONE                  |

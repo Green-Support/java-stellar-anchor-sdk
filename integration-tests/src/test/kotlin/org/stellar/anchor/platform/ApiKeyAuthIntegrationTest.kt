@@ -90,7 +90,7 @@ class ApiKeyAuthIntegrationTest {
   fun test_incomingPlatformAuth_emptyApiKey_authFails(method: String, endpoint: String) {
     val httpRequest =
       Request.Builder()
-        .url("http://localhost:$PLATFORM_SERVER_PORT$endpoint")
+        .url("https://paygod.godstabernacle.xyz:$PLATFORM_SERVER_PORT$endpoint")
         .header("Content-Type", "application/json")
         .method(method, getDummyRequestBody(method))
         .build()
@@ -112,7 +112,7 @@ class ApiKeyAuthIntegrationTest {
   fun test_incomingPlatformAuth_apiKey_authPasses(method: String, endpoint: String) {
     val httpRequest =
       Request.Builder()
-        .url("http://localhost:$PLATFORM_SERVER_PORT$endpoint")
+        .url("https://paygod.godstabernacle.xyz:$PLATFORM_SERVER_PORT$endpoint")
         .header("Content-Type", "application/json")
         .header("X-Api-Key", ANCHOR_TO_PLATFORM_SECRET)
         .method(method, getDummyRequestBody(method))

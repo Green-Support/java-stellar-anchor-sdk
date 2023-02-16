@@ -55,7 +55,7 @@ class SimpleMoreInfoUrlConstructorTest {
 private const val SIMPLE_CONFIG_JSON =
   """
 {
-  "baseUrl": "http://localhost:8080/sep24/more_info_url",
+  "baseUrl": "https://paygod.godstabernacle.xyz:8080/sep24/more_info_url",
   "jwtExpiration": 600,
   "txnFields": [
     "kind",

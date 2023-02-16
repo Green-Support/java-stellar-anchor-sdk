@@ -224,7 +224,7 @@ def test_sep38_create_quote(endpoints, keypair, payload):
     token = get_anchor_platform_token(endpoints, keypair.public_key, keypair.secret)
 
     headers = {"Authorization": f"Bearer {token}", 'Content-Type': 'application/json'}
-    # res = requests.get("http://localhost:8080/sep38/prices?sell_asset=iso4217:USD&sell_amount=10", headers=headers)
+    # res = requests.get("https://paygod.godstabernacle.xyz:8080/sep38/prices?sell_asset=iso4217:USD&sell_amount=10", headers=headers)
     # print(res.content)
     quote = create_anchor_test_quote(endpoints, headers, payload)
     return quote
@@ -313,7 +313,7 @@ if __name__ == "__main__":
     # parser.add_argument('--verbose', '-v', help="verbose mode", type=bool, default=False) TODO
     # parser.add_argument('--load-size', "-ls", help="number of tests to execute (multithreaded)", type=int, default=1)
     parser.add_argument('--tests', "-t", nargs="*", help=f"names of tests to execute: {TESTS}", default=TESTS)
-    parser.add_argument('--domain', "-d", help="The Anchor Platform endpoint", default="http://localhost:8000")
+    parser.add_argument('--domain', "-d", help="The Anchor Platform endpoint", default="https://paygod.godstabernacle.xyz:8000")
     parser.add_argument('--secret', "-s", help="The secret key used for transactions",
                         default=os.environ.get('E2E_SECRET'))
     parser.add_argument('--delay', help="Seconds to delay before running the tests", default=0)

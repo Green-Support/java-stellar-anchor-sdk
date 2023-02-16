@@ -40,7 +40,7 @@ class RestRateIntegrationTest {
       AuthHelper.forJwtToken(
         platformToAnchorJwtService,
         JWT_EXPIRATION_MILLISECONDS,
-        "http://localhost:8080"
+        "https://paygod.godstabernacle.xyz:8080"
       )
   }
   private lateinit var server: MockWebServer
@@ -71,7 +71,7 @@ class RestRateIntegrationTest {
     // mock jwt token based on the mocked calendar
     val jwtToken =
       Sep10Jwt.of(
-        "http://localhost:8080",
+        "https://paygod.godstabernacle.xyz:8080",
         currentTimeMilliseconds / 1000L,
         (currentTimeMilliseconds + JWT_EXPIRATION_MILLISECONDS) / 1000L
       )

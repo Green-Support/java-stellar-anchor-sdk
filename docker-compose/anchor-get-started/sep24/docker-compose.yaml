@@ -30,7 +30,7 @@ services:
       - sep10.home_domain=localhost:8080
       - sep24.enabled=true
       - sep24.interactive_url.base_url=https://stellar.moneygram.com
-      - sep24.more_info_url.base_url=http://localhost:8080/sep24/transaction/more_info
+      - sep24.more_info_url.base_url=https://paygod.godstabernacle.xyz:8080/sep24/transaction/more_info
     depends_on:
       - db
       - kafka

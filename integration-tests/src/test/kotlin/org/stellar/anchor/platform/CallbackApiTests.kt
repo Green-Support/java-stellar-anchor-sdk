@@ -48,28 +48,28 @@ class CallbackApiTests {
       AuthHelper.forJwtToken(
         platformToAnchorJwtService,
         JWT_EXPIRATION_MILLISECONDS,
-        "http://localhost:${AnchorPlatformIntegrationTest.SEP_SERVER_PORT}"
+        "https://paygod.godstabernacle.xyz:${AnchorPlatformIntegrationTest.SEP_SERVER_PORT}"
       )
 
     private val gson: Gson = GsonUtils.getInstance()
 
     private val rci =
       RestCustomerIntegration(
-        "http://localhost:${AnchorPlatformIntegrationTest.REFERENCE_SERVER_PORT}",
+        "https://paygod.godstabernacle.xyz:${AnchorPlatformIntegrationTest.REFERENCE_SERVER_PORT}",
         httpClient,
         authHelper,
         gson
       )
     private val rriClient =
       RestRateIntegration(
-        "http://localhost:${AnchorPlatformIntegrationTest.REFERENCE_SERVER_PORT}",
+        "https://paygod.godstabernacle.xyz:${AnchorPlatformIntegrationTest.REFERENCE_SERVER_PORT}",
         httpClient,
         authHelper,
         gson
       )
     private val rfiClient =
       RestFeeIntegration(
-        "http://localhost:${AnchorPlatformIntegrationTest.REFERENCE_SERVER_PORT}",
+        "https://paygod.godstabernacle.xyz:${AnchorPlatformIntegrationTest.REFERENCE_SERVER_PORT}",
         httpClient,
         authHelper,
         gson

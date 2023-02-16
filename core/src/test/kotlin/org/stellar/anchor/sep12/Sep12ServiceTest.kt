@@ -22,7 +22,7 @@ class Sep12ServiceTest {
     private const val TEST_MUXED_ACCOUNT =
       "MBFZNZTFSI6TWLVAID7VOLCIFX2PMUOS2X7U6H4TNK4PAPSHPWMMUAAAAAAAAAPCIA2IM"
     private const val CLIENT_DOMAIN = "demo-wallet.stellar.org"
-    private const val TEST_HOST_URL = "http://localhost:8080"
+    private const val TEST_HOST_URL = "https://paygod.godstabernacle.xyz:8080"
   }
 
   private val issuedAt = Instant.now().epochSecond

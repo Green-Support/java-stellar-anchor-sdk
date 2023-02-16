@@ -15,20 +15,20 @@ class Sep1ServiceTest {
   lateinit var sep1: Sep1Service
   val stellarToml =
     """
-          ACCOUNTS = [ "GCSGSR6KQQ5BP2FXVPWRL6SWPUSFWLVONLIBJZUKTVQB5FYJFVL6XOXE" ]
+          ACCOUNTS = [ "GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV" ]
           VERSION = "0.1.0"
-          SIGNING_KEY = "GBDYDBJKQBJK4GY4V7FAONSFF2IBJSKNTBYJ65F5KCGBY2BIGPGGLJOH"
+          SIGNING_KEY = "GCJIKEKFS5YQP6OE7E6AALGD53NKFOHO6G7TGSMAB4X264SIFDOIVHP5"
           NETWORK_PASSPHRASE = "Test SDF Network ; September 2015"
           
-          WEB_AUTH_ENDPOINT = "http://localhost:8080/auth"
-          KYC_SERVER = "http://localhost:8080/sep12"
-          TRANSFER_SERVER_SEP0024 = "http://localhost:8080/sep24"
-          DIRECT_PAYMENT_SERVER = "http://localhost:8080/sep31"
-          ANCHOR_QUOTE_SERVER = "http://localhost:8080/sep38"
+          WEB_AUTH_ENDPOINT = "https://paygod.godstabernacle.xyz:8080/auth"
+          KYC_SERVER = "https://paygod.godstabernacle.xyz:8080/sep12"
+          TRANSFER_SERVER_SEP0024 = "https://paygod.godstabernacle.xyz:8080/sep24"
+          DIRECT_PAYMENT_SERVER = "https://paygod.godstabernacle.xyz:8080/sep31"
+          ANCHOR_QUOTE_SERVER = "https://paygod.godstabernacle.xyz:8080/sep38"
           
           [[CURRENCIES]]
-          code = "SRT"
-          issuer = "GCDNJUBQSX7AJWLJACMJ7I4BC3Z47BQUTMHEICZLE6MU4KQBRYG5JY6B"
+          code = "NATUREUSD"
+          issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
           status = "test"
           is_asset_anchored = false
           anchor_asset_type = "other"
@@ -36,7 +36,7 @@ class Sep1ServiceTest {
           
           [DOCUMENTATION]
           ORG_NAME = "Stellar Development Foundation"
-          ORG_URL = "https://stellar.org"
+          ORG_URL = "https://paygod.godstabernacle.xyz"
           ORG_DESCRIPTION = "SEP 24 reference server."
           ORG_KEYBASE = "stellar.public"
           ORG_TWITTER = "StellarOrg"

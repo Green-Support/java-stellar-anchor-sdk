@@ -27,11 +27,11 @@ class CallbackApiConfigTest {
 
   @Test
   fun `test base_url`() {
-    config.baseUrl = "http://localhost:8080"
+    config.baseUrl = "https://paygod.godstabernacle.xyz:8080"
     config.validateBaseUrl(errors)
     assertEquals(0, errors.errorCount)
 
-    config.baseUrl = "https://www.stellar.org"
+    config.baseUrl = "https://www.godstabernacle.xyz"
     config.validateBaseUrl(errors)
     assertEquals(0, errors.errorCount)
   }
@@ -39,7 +39,7 @@ class CallbackApiConfigTest {
   @Test
   fun `test mal-formatted url`() {
     // mal-formatted base_url
-    config.baseUrl = "http://localhost; 8080"
+    config.baseUrl = "https://paygod.godstabernacle.xyz; 8080"
     config.validateBaseUrl(errors)
     assertEquals(1, errors.errorCount)
     assertEquals("mal-formatted-callback-api-base-url", errors.allErrors[0].code)

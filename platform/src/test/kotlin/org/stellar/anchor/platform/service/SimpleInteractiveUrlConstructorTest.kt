@@ -65,7 +65,7 @@ class SimpleInteractiveUrlConstructorTest {
 private const val SIMPLE_CONFIG_JSON =
   """
 {
-  "baseUrl": "http://localhost:8080/sep24/interactive",
+  "baseUrl": "https://paygod.godstabernacle.xyz:8080/sep24/interactive",
   "jwtExpiration": 600,
   "txnFields": [
     "kind",

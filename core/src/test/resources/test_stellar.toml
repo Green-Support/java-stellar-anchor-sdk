@@ -3,8 +3,8 @@ VERSION = "0.1.0"
 NETWORK_PASSPHRASE = "Test SDF Network ; September 2015"
 SIGNING_KEY = "GCHLHDBOKG2JWMJQBTLSL5XG6NO7ESXI2TAQKZXCXWXB5WI2X6W233PR"
 
-WEB_AUTH_ENDPOINT = "http://localhost:9800/auth"
-ANCHOR_QUOTE_SERVER = "http://localhost:8080/sep38"
+WEB_AUTH_ENDPOINT = "https://paygod.godstabernacle.xyz:9800/auth"
+ANCHOR_QUOTE_SERVER = "https://paygod.godstabernacle.xyz:8080/sep38"
 
 [[CURRENCIES]]
 code = "USDC"
