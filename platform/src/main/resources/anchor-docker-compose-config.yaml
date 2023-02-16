@@ -358,4 +358,4 @@ data:
   ## Only valid when database `type` is `aurora`.
   ## Recommended setting is 14 minutes because IAM tokens are valid for 15 min.
   #
-   hikari_max_lifetime: 840000
+  # hikari_max_lifetime: 840000
