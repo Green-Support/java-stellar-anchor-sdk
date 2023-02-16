@@ -67,12 +67,12 @@ amqp.listener:
 #
 # Spring Data JDBC settings for H2
 #
-spring.datasource.url: jdbc:h2:mem:test
-spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.H2Dialect
-spring.flyway.enabled: false
+#spring.datasource.url: jdbc:h2:mem:test
+#spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.H2Dialect
+#spring.flyway.enabled: false
 
 # force gson as serializer/deserializer over jackson
-spring.mvc.converters.preferred-json-mapper: gson
+#spring.mvc.converters.preferred-json-mapper: gson
 
 #
 # Spring Data JDBC settings for SQLite
