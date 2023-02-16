@@ -19,6 +19,7 @@ name = "NATURE DOLLAR"
 is_asset_anchored = true
 anchor_asset_type = "crypto"
 anchor_asset = "NATUREUSD"
+desc = "NATUREUSD is nature smartchain's test USD stable coin"
 redemption_instructions = "Get your asset via our wallets"
 
 [[CURRENCIES]]
@@ -30,6 +31,7 @@ name = "NATURE NAIRA"
 is_asset_anchored = true
 anchor_asset_type = "crypto"
 anchor_asset = "NATURENGN"
+desc = "NATURENGN is nature smartchain's test NGN stable coin"
 redemption_instructions = "Get your asset via our wallets"
 
 [DOCUMENTATION]
