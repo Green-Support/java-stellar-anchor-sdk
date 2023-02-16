@@ -3,26 +3,26 @@
     {
       "schema": "stellar",
       "code": "USDC",
-      "issuer": "GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5",
-      "distribution_account": "GA7FYRB5VREZKOBIIKHG5AVTPFGWUBPOBF7LTYG4GTMFVIOOD2DWAL7I",
-      "significant_decimals": 2,
+      "issuer": ""GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"",
+      "distribution_account": "GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV",
+      "significant_decimals": 4,
       "deposit" : {
         "enabled": true,
         "fee_minimum": 0,
-        "fee_percent": 0,
+        "fee_percent": 1,
         "min_amount": 1,
         "max_amount": 10000
       },
       "withdraw": {
         "enabled": true,
         "fee_fixed": 0,
-        "fee_percent": 0,
+        "fee_percent": 1,
         "min_amount": 1,
         "max_amount": 10000
       },
       "send": {
         "fee_fixed": 0,
-        "fee_percent": 0,
+        "fee_percent": 1,
         "min_amount": 1,
         "max_amount": 1000000
       },
@@ -39,10 +39,10 @@
           }
         }
       },
-      "sep6_enabled": false,
-      "sep24_enabled": false,
+      "sep6_enabled": true,
+      "sep24_enabled": true,
       "sep31_enabled": true,
-      "sep38_enabled": false
+      "sep38_enabled": true
     }
   ]
 }
