@@ -10,11 +10,11 @@ stellar_network:
 callback_api:
   base_url: https://paygod.godstabernacle.xyz:8081
   auth:
-    type: JWT_TOKEN
+    type: JWT
 
 platform_api:
   auth:
-    type: JWT_TOKEN
+    type: JWT
 
 languages: en
 

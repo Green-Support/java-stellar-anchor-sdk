@@ -23,7 +23,7 @@ anchor.settings:
 #
 # When the receiving part decodes the incoming request token, it needs to verify if the token is still valid (and not expired).
 integration-auth:
-  authType: JWT_TOKEN
+  authType: JWT
   platformToAnchorSecret: myPlatformToAnchorSecret
   anchorToPlatformSecret: myAnchorToPlatformSecret
   expirationMilliseconds: 30000

@@ -14,8 +14,8 @@ data:
 
 # The anchor server callback API endpoint for customer, fee, quote, and unique url integration.
 callback_api:
-  base_url: https://localhost:8080
-  auth_type: JWT_TOKEN
+  base_url: https://paygod.godstabernacle.xyz:8080
+  auth_type: JWT
 
 stellar_network:
   # Use `TESTNET` or `PUBNET` network
