@@ -56,25 +56,27 @@ sep1:
       DIRECT_PAYMENT_SERVER = "https://paygod.godstabernacle.xyz:8080/sep31"
       ANCHOR_QUOTE_SERVER = "https://paygod.godstabernacle.xyz:8080/sep38"
       
-     [[CURRENCIES]]
-     code = "NATUREUSD"
-     issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
-     status = "test"
-     name = "NATURE DOLLAR"
-     is_asset_anchored = true
-     anchor_asset_type = "crypto"
-     anchor_asset = "NATUREUSD"
-     redemption_instructions = "Get your asset via our wallets"
+      [[CURRENCIES]]
+      code = "NATUREUSD"
+      issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
+      home_Domain = "paygod.godstabernacle.xyz"
+      status = "test"
+      name = "NATURE DOLLAR"
+      is_asset_anchored = true
+      anchor_asset_type = "crypto"
+      anchor_asset = "NATUREUSD"
+      redemption_instructions = "Get your asset via our wallets"
      
-     [[CURRENCIES]]
-     code = "NATURENGN"
-     issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
-     status = "test"
-     name = "NATURE NAIRA"
-     is_asset_anchored = true
-     anchor_asset_type = "crypto"
-     anchor_asset = "NATURENGN"
-     redemption_instructions = "Get your asset via our wallets" 
+      [[CURRENCIES]]
+      code = "NATURENGN"
+      issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
+      home_Domain = "paygod.godstabernacle.xyz"
+      status = "test"
+      name = "NATURE NAIRA"
+      is_asset_anchored = true
+      anchor_asset_type = "crypto"
+      anchor_asset = "NATURENGN"
+      redemption_instructions = "Get your asset via our wallets" 
       
 sep10:
   enabled: true

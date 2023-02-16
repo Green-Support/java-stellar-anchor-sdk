@@ -7,11 +7,11 @@ logging:
 callback_api:
   base_url: https://paygod.godstabernacle.xyz:8081
   auth:
-    type: none
+    type: jwt
 
 platform_api:
   auth:
-    type: none
+    type: jwt
 
 events:
   enabled: true
@@ -38,6 +38,7 @@ sep1:
       [[CURRENCIES]]
       code = "NATUREUSD"
       issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
+      home_Domain = "paygod.godstabernacle.xyz"
       status = "test"
       name = "NATURE DOLLAR"
       is_asset_anchored = true
@@ -48,6 +49,7 @@ sep1:
       [[CURRENCIES]]
       code = "NATURENGN"
       issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
+      home_Domain = "paygod.godstabernacle.xyz"
       status = "test"
       name = "NATURE NIGERIA"
       is_asset_anchored = true
