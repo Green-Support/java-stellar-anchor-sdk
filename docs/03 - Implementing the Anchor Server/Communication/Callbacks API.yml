@@ -179,7 +179,7 @@ paths:
   /rate:
     get:
       description: |
-        Transactions that involve two non-equivalent on & off-chain assets (such as USDC on Stellar and fiat EUR) must 
+        Transactions that involve two non-equivalent on & off-chain assets (such as NATUREUSD on Stellar and fiat EUR) must 
         use exchange rates that are communicated to the client application requesting the transaction. When clients make
         requests to the Platform for these exchange rates, the Platform sends this request to the anchor to fetch it.
         

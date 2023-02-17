@@ -48,17 +48,17 @@ class Sep31ServiceTest {
   companion object {
     val gson: Gson = GsonUtils.getInstance()
 
-    private const val stellarUSDC =
-      "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+    private const val stellarNATUREUSD =
+      "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
 
-    private const val stellarJPYC =
-      "stellar:JPYC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
+    private const val stellarNATURENGN =
+      "stellar:NATURENGN:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
 
     private const val requestJson =
       """
         {
           "amount": "500",
-          "asset_code": "USDC",
+          "asset_code": "NATUREUSD",
           "sender_id": "3f720570-26bd-4ea6-b0a2-1643ef4149da",
           "receiver_id": "69401a9a-7edb-4121-b507-1089a4389b11",
           "fields": {
@@ -75,14 +75,14 @@ class Sep31ServiceTest {
       """
         {
           "amount": "2",
-          "asset": "USDC"
+          "asset": "NATUREUSD"
         }
     """
 
     private const val assetJson =
       """
             {
-              "code": "USDC",
+              "code": "NATUREUSD",
               "issuer": "GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5",
               "distribution_account": "GA7FYRB5VREZKOBIIKHG5AVTPFGWUBPOBF7LTYG4GTMFVIOOD2DWAL7I",
               "schema": "stellar",
@@ -175,11 +175,11 @@ class Sep31ServiceTest {
       "status": "pending_sender",
       "statusEta": "100",
       "amountIn": "100",
-      "amountInAsset": "USDC",
+      "amountInAsset": "NATUREUSD",
       "amountOut": "98",
       "amountOutAsset": "USD",
       "amountFee": "2",
-      "amountFeeAsset": "USDC",
+      "amountFeeAsset": "NATUREUSD",
       "stellarAccountId": "GAYR3FVW2PCXTNHHWHEAFOCKZQV4PEY2ZKGIKB47EKPJ3GSBYA52XJBY",
       "stellarMemo": "123456",
       "stellarMemoType": "text",
@@ -243,13 +243,13 @@ class Sep31ServiceTest {
         "expires_at": "2021-04-30T07:42:23",
         "total_price": "0.008",
         "price": "0.0072",
-        "sell_asset": "stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+        "sell_asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
         "sell_amount": "100",
-        "buy_asset": "stellar:JPYC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5",
+        "buy_asset": "stellar:NATURENGN:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5",
         "buy_amount": "12500",
         "fee": {
           "total": "10.00",
-          "asset": "stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN"
+          "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
         }
       }
   """
@@ -384,17 +384,17 @@ class Sep31ServiceTest {
     every { sep31Config.paymentType } throws Exception("paymentType must not be called")
     request.quoteId = "quote_id"
     request.amount = "100"
-    request.assetCode = "USDC"
+    request.assetCode = "NATUREUSD"
     sep31Service.updateTxAmountsBasedOnQuote()
 
     // TODO: Add fee validation.
     assertEquals("100", txn.amountIn)
     assertEquals(
-      "stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+      "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
       txn.amountInAsset,
     )
     assertEquals("12500", txn.amountOut)
-    assertEquals(stellarJPYC, txn.amountOutAsset)
+    assertEquals(stellarNATURENGN, txn.amountOutAsset)
 
     // Test null quote failure
     Context.get().quote = null
@@ -452,11 +452,11 @@ class Sep31ServiceTest {
           .status("pending_sender")
           .statusEta(100)
           .amountIn("100")
-          .amountInAsset("USDC")
+          .amountInAsset("NATUREUSD")
           .amountOut("98")
           .amountOutAsset("USD")
           .amountFee("2")
-          .amountFeeAsset("USDC")
+          .amountFeeAsset("NATUREUSD")
           .stellarAccountId("GAYR3FVW2PCXTNHHWHEAFOCKZQV4PEY2ZKGIKB47EKPJ3GSBYA52XJBY")
           .stellarMemo("123456")
           .stellarMemoType("text")
@@ -532,11 +532,11 @@ class Sep31ServiceTest {
     assertEquals("asset FOO:null is not supported.", ex.message)
 
     // invalid asset issuer
-    postTxRequest.assetCode = "USDC"
+    postTxRequest.assetCode = "NATUREUSD"
     postTxRequest.assetIssuer = "BAR"
     ex = assertThrows { sep31Service.postTransaction(jwtToken, postTxRequest) }
     assertInstanceOf(BadRequestException::class.java, ex)
-    assertEquals("asset USDC:BAR is not supported.", ex.message)
+    assertEquals("asset NATUREUSD:BAR is not supported.", ex.message)
 
     // missing amount
     postTxRequest.assetIssuer = null
@@ -677,22 +677,22 @@ class Sep31ServiceTest {
     ex = assertThrows { sep31Service.postTransaction(jwtToken, postTxRequest) }
     assertInstanceOf(BadRequestException::class.java, ex)
     assertEquals(
-      "Quote sell asset [null] is different from the SEP-31 transaction asset [stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP]",
+      "Quote sell asset [null] is different from the SEP-31 transaction asset [stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK]",
       ex.message,
     )
 
     // quote and tx assets don't match
-    quote.sellAsset = "stellar:USDC:zzz"
+    quote.sellAsset = "stellar:NATUREUSD:zzz"
     every { quoteStore.findByQuoteId(quoteId) } returns quote
     ex = assertThrows { sep31Service.postTransaction(jwtToken, postTxRequest) }
     assertInstanceOf(BadRequestException::class.java, ex)
     assertEquals(
-      "Quote sell asset [stellar:USDC:zzz] is different from the SEP-31 transaction asset [stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP]",
+      "Quote sell asset [stellar:NATUREUSD:zzz] is different from the SEP-31 transaction asset [stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK]",
       ex.message,
     )
 
     // quote is missing the `fee` field
-    quote.sellAsset = stellarUSDC
+    quote.sellAsset = stellarNATUREUSD
     every { quoteStore.findByQuoteId(quoteId) } returns quote
     ex = assertThrows { sep31Service.postTransaction(jwtToken, postTxRequest) }
     assertInstanceOf(SepValidationException::class.java, ex)
@@ -704,22 +704,22 @@ class Sep31ServiceTest {
     val tomorrow = Instant.now().plus(1, ChronoUnit.DAYS)
     quote.expiresAt = tomorrow
     quote.id = "my_quote_id"
-    quote.sellAsset = stellarUSDC
+    quote.sellAsset = stellarNATUREUSD
     quote.sellAmount = "100"
-    quote.buyAsset = stellarJPYC
+    quote.buyAsset = stellarNATURENGN
     quote.buyAmount = "12500"
     quote.totalPrice = "0.008"
     quote.price = "0.0072"
     quote.expiresAt = Instant.now()
-    quote.fee = RateFee("10", stellarUSDC)
+    quote.fee = RateFee("10", stellarNATUREUSD)
     every { quoteStore.findByQuoteId("my_quote_id") } returns quote
 
     val senderId = "d2bd1412-e2f6-4047-ad70-a1a2f133b25c"
     val receiverId = "137938d4-43a7-4252-a452-842adcee474c"
     val postTxRequest = Sep31PostTransactionRequest()
     postTxRequest.amount = "100"
-    postTxRequest.assetCode = "USDC"
-    postTxRequest.assetIssuer = "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+    postTxRequest.assetCode = "NATUREUSD"
+    postTxRequest.assetIssuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
     postTxRequest.senderId = senderId
     postTxRequest.receiverId = receiverId
     postTxRequest.quoteId = "my_quote_id"
@@ -782,7 +782,7 @@ class Sep31ServiceTest {
       "id": "$txId",
       "status": "pending_sender",
       "amountFee": "10",
-      "amountFeeAsset": "$stellarUSDC",
+      "amountFeeAsset": "$stellarNATUREUSD",
       "startedAt": "$txStartedAt",
       "updatedAt": "$txStartedAt",
       "quoteId": "my_quote_id",
@@ -794,9 +794,9 @@ class Sep31ServiceTest {
       },
       "amountExpected": "100",
       "amountIn": "100",
-      "amountInAsset": "$stellarUSDC",
+      "amountInAsset": "$stellarNATUREUSD",
       "amountOut": "12500",
-      "amountOutAsset": "$stellarJPYC",
+      "amountOutAsset": "$stellarNATURENGN",
       "stellarAccountId": "GA7FYRB5VREZKOBIIKHG5AVTPFGWUBPOBF7LTYG4GTMFVIOOD2DWAL7I",
       "stellarMemo": "$memo",
       "stellarMemoType": "hash",
@@ -827,8 +827,8 @@ class Sep31ServiceTest {
     val receiverId = "137938d4-43a7-4252-a452-842adcee474c"
     val postTxRequest = Sep31PostTransactionRequest()
     postTxRequest.amount = "100"
-    postTxRequest.assetCode = "USDC"
-    postTxRequest.assetIssuer = "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+    postTxRequest.assetCode = "NATUREUSD"
+    postTxRequest.assetIssuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
     postTxRequest.senderId = senderId
     postTxRequest.receiverId = receiverId
     postTxRequest.fields =
@@ -890,7 +890,7 @@ class Sep31ServiceTest {
     val receiverId = "137938d4-43a7-4252-a452-842adcee474c"
     val postTxRequest = Sep31PostTransactionRequest()
     postTxRequest.amount = "100"
-    postTxRequest.assetCode = "USDC"
+    postTxRequest.assetCode = "NATUREUSD"
     postTxRequest.assetIssuer = "GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
     postTxRequest.senderId = senderId
     postTxRequest.receiverId = receiverId
@@ -908,7 +908,7 @@ class Sep31ServiceTest {
       GetFeeResponse(
         Amount(
           "2",
-          "stellar:USDC",
+          "stellar:NATUREUSD",
         ),
       )
 
@@ -932,13 +932,13 @@ class Sep31ServiceTest {
     assertEquals(wantResponse, gotResponse)
   }
 
-  private val jpycJson =
+  private val NATURENGNJson =
     """
     {"enabled":true,"quotes_supported":true,"quotes_required":true,"fee_fixed":0,"fee_percent":0,"min_amount":1,"max_amount":1000000,"sep12":{"sender":{"types":{"sep31-sender":{"description":"Japanese citizens"}}},"receiver":{"types":{"sep31-receiver":{"description":"Japanese citizens receiving USD"}}}},"fields":{"transaction":{"receiver_routing_number":{"description":"routing number of the destination bank account","optional":false},"receiver_account_number":{"description":"bank account number of the destination","optional":false},"type":{"description":"type of deposit to make","choices":["ACH","SWIFT","WIRE"],"optional":false}}}}
   """
       .trimIndent()
 
-  private val usdcJson =
+  private val NATUREUSDJson =
     """
     {"enabled":true,"quotes_supported":true,"quotes_required":true,"fee_fixed":0,"fee_percent":0,"min_amount":1,"max_amount":1000000,"sep12":{"sender":{"types":{"sep31-sender":{"description":"U.S. citizens limited to sending payments of less than ${'$'}10,000 in value"},"sep31-large-sender":{"description":"U.S. citizens that do not have sending limits"},"sep31-foreign-sender":{"description":"non-U.S. citizens sending payments of less than ${'$'}10,000 in value"}}},"receiver":{"types":{"sep31-receiver":{"description":"U.S. citizens receiving USD"},"sep31-foreign-receiver":{"description":"non-U.S. citizens receiving USD"}}}},"fields":{"transaction":{"receiver_routing_number":{"description":"routing number of the destination bank account","optional":false},"receiver_account_number":{"description":"bank account number of the destination","optional":false},"type":{"description":"type of deposit to make","choices":["SEPA","SWIFT"],"optional":false}}}}
   """
@@ -947,14 +947,14 @@ class Sep31ServiceTest {
   @Test
   fun `test INFO response`() {
     val info = sep31Service.info
-    val gotJpyc = info.receive["JPYC"]!!
-    val gotUsdc = info.receive["USDC"]!!
+    val gotNATURENGN = info.receive["NATURENGN"]!!
+    val gotNATUREUSD = info.receive["NATUREUSD"]!!
 
-    val wantJpyc = gson.fromJson(jpycJson, Sep31InfoResponse.AssetResponse::class.java)
-    val wantUsdc = gson.fromJson(usdcJson, Sep31InfoResponse.AssetResponse::class.java)
+    val wantNATURENGN = gson.fromJson(NATURENGNJson, Sep31InfoResponse.AssetResponse::class.java)
+    val wantNATUREUSD = gson.fromJson(NATUREUSDJson, Sep31InfoResponse.AssetResponse::class.java)
 
-    assertEquals(wantJpyc, gotJpyc)
-    assertEquals(wantUsdc, gotUsdc)
+    assertEquals(wantNATURENGN, gotNATURENGN)
+    assertEquals(wantNATUREUSD, gotNATUREUSD)
   }
 
   @Test
@@ -963,13 +963,13 @@ class Sep31ServiceTest {
     val ex1 = assertThrows<BadRequestException> { sep31Service.validateRequiredFields() }
     assertEquals("Missing asset information.", ex1.message)
 
-    val assetInfo = assetService.getAsset("USDC")
+    val assetInfo = assetService.getAsset("NATUREUSD")
     Context.get().asset = assetInfo
     assetInfo.code = "BAD"
     val ex2 = assertThrows<BadRequestException> { sep31Service.validateRequiredFields() }
     assertEquals("Asset [BAD] has no fields definition", ex2.message)
 
-    assetInfo.code = "USDC"
+    assetInfo.code = "NATUREUSD"
     val ex3 = assertThrows<BadRequestException> { sep31Service.validateRequiredFields() }
     assertEquals("'fields' field must have one 'transaction' field", ex3.message)
 
@@ -999,26 +999,26 @@ class Sep31ServiceTest {
 
     // With quote
     Context.get().quote = quote
-    request.destinationAsset = "USDC"
+    request.destinationAsset = "NATUREUSD"
     sep31Service.updateFee()
     var fee = Context.get().fee
     assertEquals(quote.fee.total, fee.amount)
     assertEquals(quote.fee.asset, fee.asset)
 
     // No quote
-    every { feeIntegration.getFee(any()) } returns GetFeeResponse(Amount("10", "USDC"))
+    every { feeIntegration.getFee(any()) } returns GetFeeResponse(Amount("10", "NATUREUSD"))
     Context.get().quote = null
-    request.destinationAsset = "USDC"
+    request.destinationAsset = "NATUREUSD"
     sep31Service.updateFee()
     fee = Context.get().fee
     assertEquals("10", fee.amount)
-    assertEquals("USDC", fee.asset)
+    assertEquals("NATUREUSD", fee.asset)
 
     request.destinationAsset = null
     sep31Service.updateFee()
     fee = Context.get().fee
     assertEquals("10", fee.amount)
-    assertEquals("USDC", fee.asset)
+    assertEquals("NATUREUSD", fee.asset)
   }
 
   @Test

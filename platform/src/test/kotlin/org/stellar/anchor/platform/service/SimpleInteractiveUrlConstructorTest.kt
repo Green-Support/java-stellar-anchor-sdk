@@ -54,7 +54,7 @@ class SimpleInteractiveUrlConstructorTest {
     assertEquals("deposit", data["kind"] as String)
     assertEquals("John Doe", data["name"] as String)
     assertEquals(
-      "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+      "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
       data["amount_in_asset"] as String
     )
     assertEquals("en", data["lang"] as String)
@@ -92,6 +92,6 @@ private const val TXN_JSON =
   "status": "incomplete",
   "kind" : "deposit",
   "amount_in": "100",
-  "amount_in_asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+  "amount_in_asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
 }  
 """

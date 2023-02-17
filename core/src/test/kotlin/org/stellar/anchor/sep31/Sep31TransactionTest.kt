@@ -24,8 +24,8 @@ import org.stellar.anchor.api.shared.StellarTransaction
 class Sep31TransactionTest {
   companion object {
     private const val fiatUSD = "iso4217:USD"
-    private const val stellarUSDC =
-      "stellar:USDC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
+    private const val stellarNATUREUSD =
+      "stellar:NATUREUSD:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
     private const val TEST_ACCOUNT = "GCHLHDBOKG2JWMJQBTLSL5XG6NO7ESXI2TAQKZXCXWXB5WI2X6W233PR"
     private const val TEST_MEMO = "test memo"
   }
@@ -106,7 +106,7 @@ class Sep31TransactionTest {
         .amountIn("100.0000")
         .amountInAsset(fiatUSD)
         .amountOut("98.0000000")
-        .amountOutAsset(stellarUSDC)
+        .amountOutAsset(stellarNATUREUSD)
         .amountFee("2.0000")
         .amountFeeAsset(fiatUSD)
         .stellarAccountId(TEST_ACCOUNT)
@@ -168,7 +168,7 @@ class Sep31TransactionTest {
             .amountIn("100.0000")
             .amountInAsset(fiatUSD)
             .amountOut("98.0000000")
-            .amountOutAsset(stellarUSDC)
+            .amountOutAsset(stellarNATUREUSD)
             .amountFee("2.0000")
             .amountFeeAsset(fiatUSD)
             .stellarAccountId(TEST_ACCOUNT)

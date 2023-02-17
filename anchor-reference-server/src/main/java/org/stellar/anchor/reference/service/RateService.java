@@ -172,30 +172,30 @@ public class RateService {
 
   private static class ConversionPrice {
     private static final String fiatUSD = "iso4217:USD";
-    private static final String stellarCircleUSDCtest =
-        "stellar:USDC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5";
-    private static final String stellarUSDCtest =
-        "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP";
-    private static final String stellarUSDCprod =
-        "stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN";
-    private static final String stellarJPYC =
-        "stellar:JPYC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP";
+    private static final String stellarCircleNATUREUSDtest =
+        "stellar:NATUREUSD:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5";
+    private static final String stellarNATUREUSDtest =
+        "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK";
+    private static final String stellarNATUREUSDprod =
+        "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK";
+    private static final String stellarNATURENGN =
+        "stellar:NATURENGN:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK";
     private static final Map<Pair<String, String>, String> hardcodedPrices =
         Map.ofEntries(
-            Map.entry(new Pair<>(fiatUSD, stellarUSDCtest), "1.02"),
-            Map.entry(new Pair<>(stellarUSDCtest, fiatUSD), "1.05"),
-            Map.entry(new Pair<>(fiatUSD, stellarCircleUSDCtest), "1.02"),
-            Map.entry(new Pair<>(stellarCircleUSDCtest, fiatUSD), "1.05"),
-            Map.entry(new Pair<>(fiatUSD, stellarUSDCprod), "1.02"),
-            Map.entry(new Pair<>(stellarUSDCprod, fiatUSD), "1.05"),
-            Map.entry(new Pair<>(fiatUSD, stellarJPYC), "0.0083333"),
-            Map.entry(new Pair<>(stellarJPYC, fiatUSD), "122"),
-            Map.entry(new Pair<>(stellarUSDCtest, stellarJPYC), "0.0084"),
-            Map.entry(new Pair<>(stellarJPYC, stellarUSDCtest), "120"),
-            Map.entry(new Pair<>(stellarCircleUSDCtest, stellarJPYC), "0.0084"),
-            Map.entry(new Pair<>(stellarJPYC, stellarCircleUSDCtest), "120"),
-            Map.entry(new Pair<>(stellarUSDCprod, stellarJPYC), "0.0084"),
-            Map.entry(new Pair<>(stellarJPYC, stellarUSDCprod), "120"));
+            Map.entry(new Pair<>(fiatUSD, stellarNATUREUSDtest), "1.02"),
+            Map.entry(new Pair<>(stellarNATUREUSDtest, fiatUSD), "1.05"),
+            Map.entry(new Pair<>(fiatUSD, stellarCircleNATUREUSDtest), "1.02"),
+            Map.entry(new Pair<>(stellarCircleNATUREUSDtest, fiatUSD), "1.05"),
+            Map.entry(new Pair<>(fiatUSD, stellarNATUREUSDprod), "1.02"),
+            Map.entry(new Pair<>(stellarNATUREUSDprod, fiatUSD), "1.05"),
+            Map.entry(new Pair<>(fiatUSD, stellarNATURENGN), "0.0083333"),
+            Map.entry(new Pair<>(stellarNATURENGN, fiatUSD), "122"),
+            Map.entry(new Pair<>(stellarNATUREUSDtest, stellarNATURENGN), "0.0084"),
+            Map.entry(new Pair<>(stellarNATURENGN, stellarNATUREUSDtest), "120"),
+            Map.entry(new Pair<>(stellarCircleNATUREUSDtest, stellarNATURENGN), "0.0084"),
+            Map.entry(new Pair<>(stellarNATURENGN, stellarCircleNATUREUSDtest), "120"),
+            Map.entry(new Pair<>(stellarNATUREUSDprod, stellarNATURENGN), "0.0084"),
+            Map.entry(new Pair<>(stellarNATURENGN, stellarNATUREUSDprod), "120"));
 
     /*
     getPrice returns the price without fees

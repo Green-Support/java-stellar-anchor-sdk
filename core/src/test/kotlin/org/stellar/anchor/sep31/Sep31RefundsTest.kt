@@ -20,8 +20,8 @@ import org.stellar.anchor.api.shared.Refunds
 class Sep31RefundsTest {
   companion object {
     private const val fiatUSD = "iso4217:USD"
-    private const val stellarUSDC =
-      "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+    private const val stellarNATUREUSD =
+      "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
   }
 
   @MockK(relaxed = true) private lateinit var sep31TransactionStore: Sep31TransactionStore
@@ -88,22 +88,22 @@ class Sep31RefundsTest {
     val mockPlatformApiRefunds =
       Refunds.builder()
         .amountRefunded(Amount("100", fiatUSD))
-        .amountFee(Amount("8", stellarUSDC))
+        .amountFee(Amount("8", stellarNATUREUSD))
         .payments(
           arrayOf(
             RefundPayment.builder()
               .id("A")
               .idType(RefundPayment.IdType.STELLAR)
-              .amount(Amount("50", stellarUSDC))
-              .fee(Amount("4", stellarUSDC))
+              .amount(Amount("50", stellarNATUREUSD))
+              .fee(Amount("4", stellarNATUREUSD))
               .refundedAt(Instant.now())
               .refundedAt(Instant.now())
               .build(),
             RefundPayment.builder()
               .id("B")
               .idType(RefundPayment.IdType.STELLAR)
-              .amount(Amount("50", stellarUSDC))
-              .fee(Amount("4", stellarUSDC))
+              .amount(Amount("50", stellarNATUREUSD))
+              .fee(Amount("4", stellarNATUREUSD))
               .refundedAt(Instant.now())
               .refundedAt(Instant.now())
               .build()

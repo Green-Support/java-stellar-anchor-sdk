@@ -29,8 +29,8 @@ import org.stellar.anchor.util.OkHttpUtil
 class RestFeeIntegrationTest {
   companion object {
     private const val fiatUSD = "iso4217:USD"
-    private const val stellarCircleUSDC =
-      "stellar:USDC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
+    private const val stellarCircleNATUREUSD =
+      "stellar:NATUREUSD:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
 
     private const val PLATFORM_TO_ANCHOR_SECRET = "myPlatformToAnchorSecret"
     private const val JWT_EXPIRATION_MILLISECONDS: Long = 1000000
@@ -106,7 +106,7 @@ class RestFeeIntegrationTest {
       GetFeeRequest.builder()
         .sendAsset(fiatUSD)
         .sendAmount("10")
-        .receiveAsset(stellarCircleUSDC)
+        .receiveAsset(stellarCircleNATUREUSD)
         .clientId("<client-id>")
         .senderId("<sender-id>")
         .receiverId("<receiver-id>")
@@ -127,7 +127,7 @@ class RestFeeIntegrationTest {
         """
         /fee
         ?send_asset=iso4217%3AUSD
-        &receive_asset=stellar%3AUSDC%3AGBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5
+        &receive_asset=stellar%3ANATUREUSD%3AGBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5
         &send_amount=10
         &client_id=%3Cclient-id%3E
         &sender_id=%3Csender-id%3E

@@ -39,8 +39,8 @@ import org.stellar.anchor.util.GsonUtils
 class TransactionServiceTest {
   companion object {
     private const val fiatUSD = "iso4217:USD"
-    private const val stellarUSDC =
-      "stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN"
+    private const val stellarNATUREUSD =
+      "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
     private const val TEST_ACCOUNT = "GCHLHDBOKG2JWMJQBTLSL5XG6NO7ESXI2TAQKZXCXWXB5WI2X6W233PR"
     private const val TEST_MEMO = "test memo"
     private const val TEST_TXN_ID = "a4baff5f-778c-43d6-bbef-3e9fb41d096e"
@@ -233,7 +233,7 @@ class TransactionServiceTest {
               },
               "amount_out": {
                 "amount": "98",
-                "asset": "stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN"
+                "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
               },
               "amount_fee": {
                 "amount": "2",
@@ -306,7 +306,7 @@ class TransactionServiceTest {
     testSep38Quote.sellAmount = "100"
     testSep38Quote.sellAsset = fiatUSD
     testSep38Quote.buyAmount = "98"
-    testSep38Quote.buyAsset = stellarUSDC
+    testSep38Quote.buyAsset = stellarNATUREUSD
     testSep38Quote.fee = RateFee("2", fiatUSD)
 
     every { sep38QuoteStore.findByQuoteId(quoteId) } returns testSep38Quote
@@ -345,7 +345,7 @@ class TransactionServiceTest {
           "amount_in": "100",
           "amount_in_asset": "iso4217:USD",
           "amount_out": "98",
-          "amount_out_asset": "stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+          "amount_out_asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
           "amount_fee": "2",
           "amount_fee_asset": "iso4217:USD",
           "started_at": "2023-01-19T01:51:57.648850500Z",
@@ -377,7 +377,7 @@ class TransactionServiceTest {
       "amount_in": "100.0000",
       "amount_in_asset": "iso4217:USD",
       "amount_out": "98.0000000",
-      "amount_out_asset": "stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+      "amount_out_asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
       "amount_fee": "2.0000",
       "amount_fee_asset": "iso4217:USD",
       "stellar_account_id": "GCHLHDBOKG2JWMJQBTLSL5XG6NO7ESXI2TAQKZXCXWXB5WI2X6W233PR",
@@ -465,7 +465,7 @@ class TransactionServiceTest {
       },
       "amount_out": {
         "amount": "98.0000000",
-        "asset": "stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN"
+        "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
       },
       "amount_fee": {
         "amount": "2.0000",

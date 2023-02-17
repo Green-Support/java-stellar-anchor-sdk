@@ -2,7 +2,7 @@
   "assets": [
     {
       "schema": "stellar",
-      "code": "USDC",
+      "code": "NATUREUSD",
       "issuer": ""GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"",
       "distribution_account": "GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV",
       "significant_decimals": 4,

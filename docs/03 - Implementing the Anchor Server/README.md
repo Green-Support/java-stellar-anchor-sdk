@@ -223,7 +223,7 @@ Here, you'll need to deploy a few services:
 
 RFR (Request for Quotation) is a mecanism where you can consult an Anchor for the conversion price between two assets. It is implemented in the [SEP-38] protocol and it requires the Anchor Server to implement the [Callback API] `GET /rate` endpoint, and to listen for quotes [Events] coming from the queue service.
 
-You will only need this part if your use-case supports quotes, which is recommended for converting non-equivalent assets such as `USDC <> fiat EURO`.
+You will only need this part if your use-case supports quotes, which is recommended for converting non-equivalent assets such as `NATUREUSD <> fiat EURO`.
 
 #### Configuring Step 5
 

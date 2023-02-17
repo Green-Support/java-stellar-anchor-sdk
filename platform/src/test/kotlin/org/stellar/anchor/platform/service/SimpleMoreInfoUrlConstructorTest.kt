@@ -72,6 +72,6 @@ private const val TXN_JSON =
   "status": "incomplete",
   "kind" : "deposit",
   "amount_in": "100",
-  "amount_in_asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+  "amount_in_asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
 }  
 """

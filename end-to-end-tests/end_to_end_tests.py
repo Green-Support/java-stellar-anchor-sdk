@@ -286,11 +286,11 @@ def test_sep24_withdrawal(endpoints, keypair, sep24_transaction_payload):
     memo_hash = base64.b64decode(memo_hash)
 
     # TODO get asset_issuer details from sep24.info instead of hardcoding
-    asset = Asset("USDC", "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP")
+    asset = Asset("NATUREUSD", "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK")
 
     # TODO - retrieve this from the transaction object
     # 5) send the asset to the anchor distribution account
-    anchor_distribution_account = "GBN4NNCDGJO4XW4KQU3CBIESUJWFVBUZPOKUZHT7W7WRB7CWOA7BXVQF"
+    anchor_distribution_account = "GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV"
     send_asset(asset, float(sep24_transaction_payload["amount"]), secret_key, anchor_distribution_account, memo_hash)
 
     # poll anchor platform for transaction to be updated to `complete` status by the business server
@@ -340,8 +340,8 @@ if __name__ == "__main__":
             print("####################### Testing SEP-31 Send Flow #######################")
             TRANSACTION_PAYLOAD = {
                 "amount": "10.0",
-                "asset_code": "USDC",
-                "asset_issuer": "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+                "asset_code": "NATUREUSD",
+                "asset_issuer": "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
                 "fields": {
                     "transaction": {
                         "receiver_routing_number": "r0123",
@@ -352,17 +352,17 @@ if __name__ == "__main__":
             }
             test_sep_31_flow(endpoints, keypair, TRANSACTION_PAYLOAD)
         elif test == "sep31_flow_with_sep38":
-            QUOTE_PAYLOAD_USDC_TO_JPYC = {
-                "sell_asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+            QUOTE_PAYLOAD_NATUREUSD_TO_NATURENGN = {
+                "sell_asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
                 "sell_amount": "10",
-                "buy_asset": "stellar:JPYC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+                "buy_asset": "stellar:NATURENGN:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
                 "context": "sep31"
             }
 
-            TRANSACTION_PAYLOAD_USDC_TO_JPYC = {
+            TRANSACTION_PAYLOAD_NATUREUSD_TO_NATURENGN = {
                 "amount": "10.0",
-                "asset_code": "USDC",
-                "asset_issuer": "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+                "asset_code": "NATUREUSD",
+                "asset_issuer": "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
                 "fields": {
                     "transaction": {
                         "receiver_routing_number": "r0123",
@@ -372,17 +372,17 @@ if __name__ == "__main__":
                 }
             }
 
-            QUOTE_PAYLOAD_JPYC_TO_USD = {
-                "sell_asset": "stellar:JPYC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+            QUOTE_PAYLOAD_NATURENGN_TO_USD = {
+                "sell_asset": "stellar:NATURENGN:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
                 "sell_amount": "10",
                 "buy_asset": "iso4217:USD",
                 "context": "sep31"
             }
 
-            TRANSACTION_PAYLOAD_JPYC_TO_USD = {
+            TRANSACTION_PAYLOAD_NATURENGN_TO_USD = {
                 "amount": "10.0",
-                "asset_code": "JPYC",
-                "asset_issuer": "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+                "asset_code": "NATURENGN",
+                "asset_issuer": "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
                 "fields": {
                     "transaction": {
                         "receiver_routing_number": "r0123",
@@ -391,23 +391,23 @@ if __name__ == "__main__":
                     }
                 }
             }
-            print("####################### Testing SEP-31/38 USDC to JPYC Flow #######################")
-            test_sep_31_flow(endpoints, keypair, TRANSACTION_PAYLOAD_USDC_TO_JPYC,
-                             sep38_payload=QUOTE_PAYLOAD_USDC_TO_JPYC)
+            print("####################### Testing SEP-31/38 NATUREUSD to NATURENGN Flow #######################")
+            test_sep_31_flow(endpoints, keypair, TRANSACTION_PAYLOAD_NATUREUSD_TO_NATURENGN,
+                             sep38_payload=QUOTE_PAYLOAD_NATUREUSD_TO_NATURENGN)
             print()
             print()
-            print("####################### Testing SEP-31/38 JPYC to USD Flow #######################")
-            test_sep_31_flow(endpoints, keypair, TRANSACTION_PAYLOAD_JPYC_TO_USD,
-                             sep38_payload=QUOTE_PAYLOAD_JPYC_TO_USD)
+            print("####################### Testing SEP-31/38 NATURENGN to USD Flow #######################")
+            test_sep_31_flow(endpoints, keypair, TRANSACTION_PAYLOAD_NATURENGN_TO_USD,
+                             sep38_payload=QUOTE_PAYLOAD_NATURENGN_TO_USD)
         elif test == "sep38_create_quote":
             print("####################### Testing POST Quote #######################")
-            QUOTE_PAYLOAD_USDC_TO_JPYC = {
-                "sell_asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+            QUOTE_PAYLOAD_NATUREUSD_TO_NATURENGN = {
+                "sell_asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
                 "sell_amount": "10",
-                "buy_asset": "stellar:JPYC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+                "buy_asset": "stellar:NATURENGN:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
                 "context": "sep31"
             }
-            test_sep38_create_quote(endpoints, keypair, QUOTE_PAYLOAD_USDC_TO_JPYC)
+            test_sep38_create_quote(endpoints, keypair, QUOTE_PAYLOAD_NATUREUSD_TO_NATURENGN)
         elif test == "omnibus_allowlist":
             print("####################### Testing Omnibus Allowlist #######################")
             print(f"Omnibus Allowlist - testing with allowed key: {keypair.public_key}")
@@ -422,9 +422,9 @@ if __name__ == "__main__":
             print(f"Omnibus Allowlist - testing with disallowed (random) key: {random_kp.public_key} expecting 403 error - success")
         elif test == "sep24_withdrawal_flow":
             SEP24_WITHDRAWAL_TRANSACTION_PAYLOAD = {
-                "asset_code": "USDC",
+                "asset_code": "NATUREUSD",
                 "amount": 10,
-                "asset_issuer": "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+                "asset_issuer": "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
                 "account": keypair.public_key,
                 "lang": "en"
             }

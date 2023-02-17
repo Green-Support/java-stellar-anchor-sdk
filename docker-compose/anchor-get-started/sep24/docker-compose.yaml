@@ -6,12 +6,12 @@ services:
     environment:
       - stellar_anchor_config=file:/config/anchor-config.yaml
       # secrets
-      - secret.data.username=postgres
-      - secret.data.password=password
+      - secret.data.username=anchoruser
+      - secret.data.password=Edenlife247
       - secret.platform_api.auth_secret=myAnchorToPlatformSecret
       - secret.callback_api.auth_secret=myPlatformToAnchorSecret
-      - secret.sep10.jwt_secret=secret_sep10_secret
-      - secret.sep10.signing_seed=SAX3AH622R2XT6DXWWSRIDCMMUCCMATBZ5U6XKJWDO7M2EJUBFC3AW5X
+      - secret.sep10.jwt_secret=jesuschrisislordthereforebebornagain
+      - secret.sep10.signing_seed=SA2N44T5PKJ434T6WTAGJIGNER463IA7OUWPDQ5TBTWSKYJAK2UAGBCK
       - secret.sep24.interactive_url.jwt_secret=secret_sep24_interactive_url_jwt_secret
       - secret.sep24.more_info_url.jwt_secret=secret_sep24_more_info_url_jwt_secret
       # logging
@@ -27,8 +27,8 @@ services:
       # seps
       - sep1.enabled=true
       - sep10.enabled=true
-      - sep10.home_domain=localhost:8080
-      - sep24.enabled=true
+      - sep10.home_domain=paygod.godstabernacle.xyz:8080
+      - sep24.enabled=false
       - sep24.interactive_url.base_url=https://stellar.moneygram.com
       - sep24.more_info_url.base_url=https://paygod.godstabernacle.xyz:8080/sep24/transaction/more_info
     depends_on:

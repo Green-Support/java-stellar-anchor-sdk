@@ -33,7 +33,7 @@ class CallbackApiTests {
     private const val JWT_EXPIRATION_MILLISECONDS: Long = 10000
     private const val FIAT_USD = "iso4217:USD"
     private const val STELLAR_USD =
-      "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+      "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
 
     private val httpClient: OkHttpClient =
       OkHttpClient.Builder()
@@ -229,8 +229,8 @@ class CallbackApiTests {
         rfiClient.getFee(
           GetFeeRequest.builder()
             .sendAmount("10")
-            .sendAsset("USDC")
-            .receiveAsset("USDC")
+            .sendAsset("NATUREUSD")
+            .receiveAsset("NATUREUSD")
             .senderId(senderCustomer!!.id)
             .receiverId(receiverCustomer!!.id)
             .clientId("<client-id>")
@@ -242,7 +242,7 @@ class CallbackApiTests {
         org.stellar.anchor.platform.gson.toJson(result),
         """{
         "fee": {
-          "asset": "USDC",
+          "asset": "NATUREUSD",
           "amount": "0.30"
         }
       }""",

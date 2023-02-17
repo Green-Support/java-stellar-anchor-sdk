@@ -10,9 +10,9 @@ class TestConstants {
     const val TEST_NETWORK_PASS_PHRASE = "Test SDF Network ; September 2015"
     const val TEST_HOST_URL = "https://test.stellar.org"
     const val TEST_JWT_SECRET = "jwt_secret"
-    const val TEST_ASSET = "USDC"
+    const val TEST_ASSET = "NATUREUSD"
     const val TEST_ASSET_ISSUER_ACCOUNT_ID =
-      "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+      "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
     const val TEST_TRANSACTION_ID_0 = "c60c62da-bcd6-4423-87b8-0cbd19005422"
     const val TEST_TRANSACTION_ID_1 = "b60c62da-bcd6-4423-87b8-0cbd19005422"
 

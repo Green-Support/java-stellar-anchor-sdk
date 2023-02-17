@@ -39,7 +39,7 @@
         "created_at": "2022-02-07T18:02:16Z",
         "transaction_hash": "fb8947c67856d8eb444211c1927d92bcf14abcfb34cdd27fc9e604b15d208fd1",
         "asset_type": "credit_alphanum4",
-        "asset_code": "USDC",
+        "asset_code": "NATUREUSD",
         "asset_issuer": "GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5",
         "from": "GAC2OWWDD75GCP4II35UCLYA7JB6LDDZUBZQLYANAVIHIRJAAQBSCL2S",
         "to": "GAYF33NNNMI2Z6VNRFXQ64D4E4SF77PM46NW3ZUZEEU5X7FCHAZCMHKU",
