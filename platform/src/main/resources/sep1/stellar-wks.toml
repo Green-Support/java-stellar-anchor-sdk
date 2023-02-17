@@ -13,7 +13,7 @@ ANCHOR_QUOTE_SERVER = "https://paygod.godstabernacle.xyz:8080/sep38"
 [[CURRENCIES]]
 code = "NATUREUSD"
 issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
-homeDomain = "paygod.godstabernacle.xyz"
+home-domain = "paygod.godstabernacle.xyz"
 status = "test"
 name = "NATURE DOLLAR"
 is_asset_anchored = true
@@ -25,7 +25,7 @@ redemption_instructions = "Get your asset via our wallets"
 [[CURRENCIES]]
 code = "NATURENGN"
 issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
-homeDomain = "paygod.godstabernacle.xyz"
+home-domain = "paygod.godstabernacle.xyz"
 status = "test"
 name = "NATURE NAIRA"
 is_asset_anchored = true
