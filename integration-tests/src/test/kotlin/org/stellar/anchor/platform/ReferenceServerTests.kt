@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions
 lateinit var referenceServerClient: ReferenceServerClient
 
 fun referenceServerTestAll() {
-  referenceServerClient = ReferenceServerClient("https://paygod.godstabernacle.xyz:8081")
+  referenceServerClient = ReferenceServerClient("http://localhost:8081")
   println("Performing Reference Server tests...")
   testReferenceHealth()
 }

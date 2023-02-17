@@ -5,7 +5,7 @@ logging:
   stellar_level: DEBUG
 
 callback_api:
-  base_url: https://paygod.godstabernacle.xyz:8081
+  base_url: http://localhost:8081
   auth:
     type: jwt
 
