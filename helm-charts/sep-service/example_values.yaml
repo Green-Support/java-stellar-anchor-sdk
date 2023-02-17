@@ -85,10 +85,10 @@ ingress:
        livenessProbeFailureThreshold: 2
      ingress:
        tls:
-          host: "<observer.paygod.godstabernacle.xyz"    
+          host: "observer.paygod.godstabernacle.xyz"    
        rules:
           hosts:
-          - host: "<observer.paygod.godstabernacle.xyz" 
+          - host: "observer.paygod.godstabernacle.xyz" 
             path: /
             pathType: Prefix
 
@@ -98,19 +98,19 @@ app_config:
   version: 1
   #
   # Database (h2):
-  data.type: h2
+  # data.type: h2
   #
-  # Database (PostgreSQL):
-  # data.type: postgres
-  # data.url: jdbc:postgresql://<host>:<port>/<database_name>
-  # data.username: POSTGRES_USERNAME  # TODO: use secrets
-  # data.password: POSTGRES_PASSWORD  # TODO: use secrets
-  # data.initial_connection_pool_size: 3
-  # data.max_active_connections: 10
-  # data.flyway_enabled: true
-  # data.ddl_auto: update
-  # data.flyway_location: /db/migration
-  #
+   Database (PostgreSQL):
+   data.type: postgres
+   data.url: jdbc:postgresql://<host>:<port>/<database_name>
+   data.username: anchoruser
+   data.password: Edenlife247
+   data.initial_connection_pool_size: 3
+   data.max_active_connections: 10
+   data.flyway_enabled: true
+   data.ddl_auto: update
+   data.flyway_location: /db/migration
+  # Host
   host_url: https://paygod.godstabernacle.xyz
   stellar_network.network: TESTNET
   stellar_network.network_passphrase: Test SDF Network ; September 2015
