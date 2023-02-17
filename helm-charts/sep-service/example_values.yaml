@@ -75,10 +75,7 @@ ingress:
 # will be accessible by both deployments (sep-server and stellar-observer).
 # In-memory databases won't work.
  stellarObserver:
-#    # This will enable the stellar-observer service as a separate deployment:
     enabled: true
-#    # The stellarObserver.deployment section is optional, the templates have
-#    # default values.
     deployment:
        port: 8083
        probePath: "/health"
@@ -143,7 +140,7 @@ app_config:
   events.event_type_to_queue.transaction_status_changed: preview-id_ap_event_transaction_status_changed
   events.event_type_to_queue.transaction_error: preview-id_ap_event_transaction_error
   events.publisher.type: kafka
-  events.publisher.kafka.bootstrap_server: <kafka-host>:<kafka-port>
+  events.publisher.kafka.bootstrap_server: localhost:29092
   events.publisher.kafka.client_id:
   events.publisher.kafka.retries: 1
   events.publisher.kafka.linger_ms: 1000
