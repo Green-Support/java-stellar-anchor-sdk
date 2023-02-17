@@ -90,7 +90,7 @@ class Sep31ServiceTest {
               "deposit": {
                 "enabled": true,
                 "fee_fixed": 0,
-                "fee_percent": 0,
+                "fee_percent": 1,
                 "min_amount": 1,
                 "max_amount": 1000000,
                 "fee_minimum": 0
@@ -98,13 +98,13 @@ class Sep31ServiceTest {
               "withdraw": {
                 "enabled": false,
                 "fee_fixed": 0,
-                "fee_percent": 0,
+                "fee_percent": 1,
                 "min_amount": 1,
                 "max_amount": 1000000
               },
               "send": {
                 "fee_fixed": 0,
-                "fee_percent": 0,
+                "fee_percent": 1,
                 "min_amount": 1,
                 "max_amount": 1000000
               },

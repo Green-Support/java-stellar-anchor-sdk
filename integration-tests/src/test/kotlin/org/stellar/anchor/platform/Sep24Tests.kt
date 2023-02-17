@@ -330,7 +330,7 @@ private const val expectedSep24Info =
       },
       "USD": {
         "enabled": true,
-        "min_amount": 0,
+        "min_amount": 1,
         "max_amount": 10000
       },
       "NATUREUSD": {
@@ -347,7 +347,7 @@ private const val expectedSep24Info =
       },
       "USD": {
         "enabled": true,
-        "min_amount": 0,
+        "min_amount": 1,
         "max_amount": 10000
       },
       "NATUREUSD": {

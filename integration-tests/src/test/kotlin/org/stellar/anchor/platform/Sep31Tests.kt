@@ -280,7 +280,7 @@ private const val expectedSep31Info =
         "quotes_supported": true,
         "quotes_required": false,
         "fee_fixed": 0,
-        "fee_percent": 0,
+        "fee_percent": 1,
         "min_amount": 1,
         "max_amount": 1000000,
         "sep12": {
@@ -334,7 +334,7 @@ private const val expectedSep31Info =
         "quotes_supported": true,
         "quotes_required": false,
         "fee_fixed": 0,
-        "fee_percent": 0,
+        "fee_percent": 1,
         "min_amount": 1,
         "max_amount": 1000000,
         "sep12": {
