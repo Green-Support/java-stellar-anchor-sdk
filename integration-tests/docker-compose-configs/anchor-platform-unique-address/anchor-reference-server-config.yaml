@@ -12,7 +12,7 @@ anchor.settings:
   hostUrl: http://host.docker.internal:8081
 
   # The Stellar wallet to which the customer will send the Stellar assets.
-  distributionWallet: GBN4NNCDGJO4XW4KQU3CBIESUJWFVBUZPOKUZHT7W7WRB7CWOA7BXVQF
+  distributionWallet: GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV
   distributionWalletMemo:
   distributionWalletMemoType:
 
