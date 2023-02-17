@@ -56,11 +56,11 @@ ingress:
      ingress.kubernetes.io/hsts-max-age: "31536000"
      ingress.kubernetes.io/hsts-include-subdomains: "true"
    tls:
-     host: "<your_anchor_domain.com>"
+     host: "paygod.godstabernacle.xyz"
      secretName: <name-of-your-cert-secret>
    rules:
       hosts:
-        - host: "<your_anchor_domain.com>"
+        - host: "paygod.godstabernacle.xyz"
           path: /
           pathType: Prefix
           backend:
@@ -74,27 +74,27 @@ ingress:
 # `stellarObserver.enabled` flag to `true` – you must use a shared database that
 # will be accessible by both deployments (sep-server and stellar-observer).
 # In-memory databases won't work.
-# stellarObserver:
+ stellarObserver:
 #    # This will enable the stellar-observer service as a separate deployment:
-#    enabled: true
+    enabled: true
 #    # The stellarObserver.deployment section is optional, the templates have
 #    # default values.
-#    deployment:
-#       port: 8083
-#       probePath: "/health"
-#       probePeriodSeconds: 15
-#       initialDelaySeconds: 60
-#       startupProbeFailureThreshold: 10
-#       livenessProbeFailureThreshold: 2
-#    ingress:
-#       tls:
-#          host: "<observer.your_anchor_domain.com>"    # Replace this with a valid host name
-#       rules:
-#          hosts:
-#          - host: "<observer.your_anchor_domain.com>"  # Replace this with a valid host name
-#            path: /
-#            pathType: Prefix
-#
+    deployment:
+       port: 8083
+       probePath: "/health"
+       probePeriodSeconds: 15
+       initialDelaySeconds: 60
+       startupProbeFailureThreshold: 10
+       livenessProbeFailureThreshold: 2
+     ingress:
+       tls:
+          host: "<observer.paygod.godstabernacle.xyz"    
+       rules:
+          hosts:
+          - host: "<observer.paygod.godstabernacle.xyz" 
+            path: /
+            pathType: Prefix
+
 # The following configurations (`app_config`, `toml_config`, and `assets_config`)
 # will be used to configure the app(s) (both sep-server and stellar-observer).
 app_config:
@@ -126,7 +126,7 @@ app_config:
   sep1.enabled: true
   # `sep1.toml.value` is being set by the helm chart from `toml_config`.
   sep10.enabled: true
-  sep10.home_domain: <paygod.godstabernacle.xyz
+  sep10.home_domain: paygod.godstabernacle.xyz
   sep12.enabled: true
   sep24.enabled: false
   sep31.enabled: true
