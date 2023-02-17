@@ -83,7 +83,7 @@ ingress:
        initialDelaySeconds: 60
        startupProbeFailureThreshold: 10
        livenessProbeFailureThreshold: 2
-     ingress:
+    ingress:
        tls:
           host: "observer.paygod.godstabernacle.xyz"    
        rules:
@@ -96,7 +96,7 @@ ingress:
 # will be used to configure the app(s) (both sep-server and stellar-observer).
 app_config:
   version: 1
-  #
+#
   # Database (h2):
   # data.type: h2
   #
