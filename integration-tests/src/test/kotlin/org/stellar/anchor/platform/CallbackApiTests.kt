@@ -33,7 +33,7 @@ class CallbackApiTests {
     private const val JWT_EXPIRATION_MILLISECONDS: Long = 10000
     private const val FIAT_USD = "iso4217:USD"
     private const val STELLAR_USD =
-      "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+      "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
 
     private val httpClient: OkHttpClient =
       OkHttpClient.Builder()
@@ -48,28 +48,28 @@ class CallbackApiTests {
       AuthHelper.forJwtToken(
         platformToAnchorJwtService,
         JWT_EXPIRATION_MILLISECONDS,
-        "http://localhost:${AnchorPlatformIntegrationTest.SEP_SERVER_PORT}"
+        "https://paygod.godstabernacle.xyz:${AnchorPlatformIntegrationTest.SEP_SERVER_PORT}"
       )
 
     private val gson: Gson = GsonUtils.getInstance()
 
     private val rci =
       RestCustomerIntegration(
-        "http://localhost:${AnchorPlatformIntegrationTest.REFERENCE_SERVER_PORT}",
+        "https://paygod.godstabernacle.xyz:${AnchorPlatformIntegrationTest.REFERENCE_SERVER_PORT}",
         httpClient,
         authHelper,
         gson
       )
     private val rriClient =
       RestRateIntegration(
-        "http://localhost:${AnchorPlatformIntegrationTest.REFERENCE_SERVER_PORT}",
+        "https://paygod.godstabernacle.xyz:${AnchorPlatformIntegrationTest.REFERENCE_SERVER_PORT}",
         httpClient,
         authHelper,
         gson
       )
     private val rfiClient =
       RestFeeIntegration(
-        "http://localhost:${AnchorPlatformIntegrationTest.REFERENCE_SERVER_PORT}",
+        "https://paygod.godstabernacle.xyz:${AnchorPlatformIntegrationTest.REFERENCE_SERVER_PORT}",
         httpClient,
         authHelper,
         gson
@@ -229,8 +229,8 @@ class CallbackApiTests {
         rfiClient.getFee(
           GetFeeRequest.builder()
             .sendAmount("10")
-            .sendAsset("USDC")
-            .receiveAsset("USDC")
+            .sendAsset("NATUREUSD")
+            .receiveAsset("NATUREUSD")
             .senderId(senderCustomer!!.id)
             .receiverId(receiverCustomer!!.id)
             .clientId("<client-id>")
@@ -242,7 +242,7 @@ class CallbackApiTests {
         org.stellar.anchor.platform.gson.toJson(result),
         """{
         "fee": {
-          "asset": "USDC",
+          "asset": "NATUREUSD",
           "amount": "0.30"
         }
       }""",

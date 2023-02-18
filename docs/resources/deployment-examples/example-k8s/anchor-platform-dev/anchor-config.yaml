@@ -30,7 +30,7 @@ anchor-config.yaml: |
  
    # Auth between anchor and platform
    integration-auth:
-     authType: JWT_TOKEN
+     authType: jwt
      platformToAnchorSecret: ${PLATFORM_TO_ANCHOR_SECRET}
      anchorToPlatformSecret: ${ANCHOR_TO_PLATFORM_SECRET}
      expirationMilliseconds: 30000
@@ -161,12 +161,12 @@ stellar-wks.toml: |
  ANCHOR_QUOTE_SERVER = "https://anchor-sep-server-dev.stellar.org/sep38"
 
  [[CURRENCIES]]
- code = "USDC"
+ code = "NATUREUSD"
  issuer = "GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
  status = "test"
  is_asset_anchored = true
  anchor_asset_type = "fiat"
- desc = "A test USDC issued by Circle."
+ desc = "A test NATUREUSD issued by Circle."
 
  [DOCUMENTATION]
  ORG_NAME = "Stellar Development Foundation"

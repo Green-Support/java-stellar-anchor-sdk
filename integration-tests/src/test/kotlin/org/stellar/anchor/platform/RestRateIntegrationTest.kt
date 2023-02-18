@@ -40,7 +40,7 @@ class RestRateIntegrationTest {
       AuthHelper.forJwtToken(
         platformToAnchorJwtService,
         JWT_EXPIRATION_MILLISECONDS,
-        "http://localhost:8080"
+        "https://paygod.godstabernacle.xyz:8080"
       )
   }
   private lateinit var server: MockWebServer
@@ -71,7 +71,7 @@ class RestRateIntegrationTest {
     // mock jwt token based on the mocked calendar
     val jwtToken =
       Sep10Jwt.of(
-        "http://localhost:8080",
+        "https://paygod.godstabernacle.xyz:8080",
         currentTimeMilliseconds / 1000L,
         (currentTimeMilliseconds + JWT_EXPIRATION_MILLISECONDS) / 1000L
       )
@@ -188,7 +188,7 @@ class RestRateIntegrationTest {
         .sellAsset("iso4217:USD")
         .sellAmount("100")
         .sellDeliveryMethod("WIRE")
-        .buyAsset("stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN")
+        .buyAsset("stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK")
         .buyDeliveryMethod("CASH")
         .countryCode("USA")
         .build()
@@ -199,7 +199,7 @@ class RestRateIntegrationTest {
         &sell_asset=iso4217%3AUSD
         &sell_amount=100
         &sell_delivery_method=WIRE
-        &buy_asset=stellar%3AUSDC%3AGA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
+        &buy_asset=stellar%3ANATUREUSD%3AGA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK
         &buy_delivery_method=CASH
         &country_code=USA"""
         .replace("\n        ", ""),
@@ -214,7 +214,7 @@ class RestRateIntegrationTest {
         .sellAsset("iso4217:USD")
         .sellAmount("100")
         .sellDeliveryMethod("WIRE")
-        .buyAsset("stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN")
+        .buyAsset("stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK")
         .buyDeliveryMethod("CASH")
         .countryCode("USA")
         .build()
@@ -225,7 +225,7 @@ class RestRateIntegrationTest {
         &sell_asset=iso4217%3AUSD
         &sell_amount=100
         &sell_delivery_method=WIRE
-        &buy_asset=stellar%3AUSDC%3AGA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
+        &buy_asset=stellar%3ANATUREUSD%3AGA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK
         &buy_delivery_method=CASH
         &country_code=USA"""
         .replace("\n        ", ""),
@@ -240,7 +240,7 @@ class RestRateIntegrationTest {
         .sellAsset("iso4217:USD")
         .sellAmount("100")
         .sellDeliveryMethod("WIRE")
-        .buyAsset("stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN")
+        .buyAsset("stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK")
         .buyAmount("100")
         .buyDeliveryMethod("WIRE")
         .countryCode("USA")
@@ -254,7 +254,7 @@ class RestRateIntegrationTest {
         &sell_asset=iso4217%3AUSD
         &sell_amount=100
         &sell_delivery_method=WIRE
-        &buy_asset=stellar%3AUSDC%3AGA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
+        &buy_asset=stellar%3ANATUREUSD%3AGA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK
         &buy_amount=100
         &buy_delivery_method=WIRE
         &country_code=USA

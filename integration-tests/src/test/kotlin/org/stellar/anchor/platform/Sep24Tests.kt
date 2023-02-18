@@ -41,7 +41,7 @@ class Sep24Tests {
       val withdrawRequest = gson.fromJson(withdrawRequest, HashMap::class.java)
       val response = sep24Client.withdraw(withdrawRequest as HashMap<String, String>)
       printResponse("POST /transactions/withdraw/interactive response:", response)
-      savedWithdrawTxn = sep24Client.getTransaction(response.id, "USDC")
+      savedWithdrawTxn = sep24Client.getTransaction(response.id, "NATUREUSD")
       printResponse(savedWithdrawTxn)
       JSONAssert.assertEquals(expectedSep24WithdrawResponse, json(savedWithdrawTxn), LENIENT)
       // check the returning Sep24InteractiveUrlJwt
@@ -57,7 +57,7 @@ class Sep24Tests {
       val depositRequest = gson.fromJson(depositRequest, HashMap::class.java)
       val response = sep24Client.deposit(depositRequest as HashMap<String, String>)
       printResponse("POST /transactions/deposit/interactive response:", response)
-      savedDepositTxn = sep24Client.getTransaction(response.id, "USDC")
+      savedDepositTxn = sep24Client.getTransaction(response.id, "NATUREUSD")
       printResponse(savedDepositTxn)
       JSONAssert.assertEquals(expectedSep24DepositResponse, json(savedDepositTxn), LENIENT)
       // check the returning Sep24InteractiveUrlJwt
@@ -73,7 +73,7 @@ class Sep24Tests {
         sep24Client
           .getTransaction(
             savedDepositTxn.transaction.id,
-            "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+            "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
           )
           .transaction
 
@@ -148,16 +148,16 @@ fun sep24TestAll() {
 
 private const val withdrawRequest =
   """{
-    "asset_code": "USDC",
-    "asset_issuer": "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+    "asset_code": "NATUREUSD",
+    "asset_issuer": "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
     "account": "GAIUIZPHLIHQEMNJGSZKCEUWHAZVGUZDBDMO2JXNAJZZZVNSVHQCEWJ4",
     "lang": "en"
 }"""
 
 private const val depositRequest =
   """{
-    "asset_code": "USDC",
-    "asset_issuer": "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+    "asset_code": "NATUREUSD",
+    "asset_issuer": "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
     "account": "GDJLBYYKMCXNVVNABOE66NYXQGIA5AC5D223Z2KF6ZEYK4UBCA7FKLTG",
     "lang": "en"
 }"""
@@ -172,7 +172,7 @@ private const val patchWithdrawTransactionRequest =
         "status": "completed",
         "amount_in": {
           "amount": "10",
-          "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+          "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
         },
         "amount_out": {
           "amount": "10",
@@ -180,39 +180,39 @@ private const val patchWithdrawTransactionRequest =
         },
         "amount_fee": {
           "amount": "1",
-          "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+          "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
         },
         "message": "this is the message",
         "refunds": {
           "amount_refunded": {
             "amount": "1",
-            "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+            "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
           },
           "amount_fee": {
             "amount": "0.1",
-            "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+            "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
           },
           "payments": [
             {
               "id": 1,
               "amount": {
                 "amount": "0.6",
-                "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+                "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
               },
               "fee": {
                 "amount": "0.1",
-                "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+                "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
               }
             },
             {
               "id": 2,
               "amount": {
                 "amount": "0.4",
-                "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+                "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
               },
               "fee": {
                 "amount": "0",
-                "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+                "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
               }
             }
           ]
@@ -229,7 +229,7 @@ private const val patchWithdrawTransactionRequest =
         },
         "amount_out": {
           "amount": "100",
-          "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+          "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
         },
         "amount_fee": {
           "amount": "1",
@@ -250,7 +250,7 @@ private const val expectedAfterPatchWithdraw =
   "status": "completed",
   "amount_in": {
     "amount": "10",
-    "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+    "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
   },
   "amount_out": {
     "amount": "10",
@@ -258,16 +258,16 @@ private const val expectedAfterPatchWithdraw =
   },
   "amount_fee": {
     "amount": "1",
-    "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+    "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
   },
   "refunds": {
     "amount_refunded": {
       "amount": "1",
-      "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+      "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
     },
     "amount_fee": {
       "amount": "0.1",
-      "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+      "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
     },
     "payments": [
       {
@@ -275,11 +275,11 @@ private const val expectedAfterPatchWithdraw =
         "id_type": "stellar",
         "amount": {
           "amount": "0.6",
-          "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+          "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
         },
         "fee": {
           "amount": "0.1",
-          "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+          "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
         }
       },
       {
@@ -287,11 +287,11 @@ private const val expectedAfterPatchWithdraw =
         "id_type": "stellar",
         "amount": {
           "amount": "0.4",
-          "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+          "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
         },
         "fee": {
           "amount": "0",
-          "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+          "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
         }
       }
     ]
@@ -310,7 +310,7 @@ private const val expectedAfterPatchDeposit =
     },
     "amount_out": {
       "amount": "100",
-      "asset": "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+      "asset": "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
     },
     "amount_fee": {
       "amount": "1",
@@ -323,34 +323,34 @@ private const val expectedSep24Info =
   """
   {
     "deposit": {
-      "JPYC": {
+      "NATURENGN": {
         "enabled": true,
         "min_amount": 1,
         "max_amount": 1000000
       },
       "USD": {
         "enabled": true,
-        "min_amount": 0,
+        "min_amount": 1,
         "max_amount": 10000
       },
-      "USDC": {
+      "NATUREUSD": {
         "enabled": true,
         "min_amount": 1,
         "max_amount": 1000000
       }
     },
     "withdraw": {
-      "JPYC": {
+      "NATURENGN": {
         "enabled": true,
         "min_amount": 1,
         "max_amount": 1000000
       },
       "USD": {
         "enabled": true,
-        "min_amount": 0,
+        "min_amount": 1,
         "max_amount": 10000
       },
-      "USDC": {
+      "NATUREUSD": {
         "enabled": true,
         "min_amount": 1,
         "max_amount": 1000000

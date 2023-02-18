@@ -59,8 +59,8 @@ class ApiKeyAuthIntegrationTest {
           "sep_server.port" to PLATFORM_SERVER_PORT,
           "sep_server.context_path" to "/",
           "stellar_anchor_config" to "classpath:integration-test.anchor-config.yaml",
-          "secret.sep10.jwt_secret" to "secret",
-          "secret.sep10.signing_seed" to "SAKXNWVTRVR4SJSHZUDB2CLJXEQHRT62MYQWA2HBB7YBOTCFJJJ55BZF",
+          "secret.sep10.jwt_secret" to "jesuschrisislordthereforebebornagain",
+          "secret.sep10.signing_seed" to "SA2N44T5PKJ434T6WTAGJIGNER463IA7OUWPDQ5TBTWSKYJAK2UAGBCK",
           "platform_api.auth.type" to "API_KEY",
           "secret.platform_api.auth_secret" to ANCHOR_TO_PLATFORM_SECRET,
           "callback_api.base_url" to mockAnchorUrl,
@@ -90,7 +90,7 @@ class ApiKeyAuthIntegrationTest {
   fun test_incomingPlatformAuth_emptyApiKey_authFails(method: String, endpoint: String) {
     val httpRequest =
       Request.Builder()
-        .url("http://localhost:$PLATFORM_SERVER_PORT$endpoint")
+        .url("https://paygod.godstabernacle.xyz:$PLATFORM_SERVER_PORT$endpoint")
         .header("Content-Type", "application/json")
         .method(method, getDummyRequestBody(method))
         .build()
@@ -112,7 +112,7 @@ class ApiKeyAuthIntegrationTest {
   fun test_incomingPlatformAuth_apiKey_authPasses(method: String, endpoint: String) {
     val httpRequest =
       Request.Builder()
-        .url("http://localhost:$PLATFORM_SERVER_PORT$endpoint")
+        .url("https://paygod.godstabernacle.xyz:$PLATFORM_SERVER_PORT$endpoint")
         .header("Content-Type", "application/json")
         .header("X-Api-Key", ANCHOR_TO_PLATFORM_SECRET)
         .method(method, getDummyRequestBody(method))
@@ -149,7 +149,7 @@ class ApiKeyAuthIntegrationTest {
       Sep38GetPriceRequest.builder()
         .sellAssetName("iso4217:USD")
         .sellAmount("100")
-        .buyAssetName("stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP")
+        .buyAssetName("stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK")
         .context(Sep38Context.SEP31)
         .build()
     val gotResponse = sep38Service.getPrice(getPriceRequest)
@@ -175,7 +175,7 @@ class ApiKeyAuthIntegrationTest {
         &context=sep31
         &sell_asset=iso4217%3AUSD
         &sell_amount=100
-        &buy_asset=stellar%3AUSDC%3AGDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP
+        &buy_asset=stellar%3ANATUREUSD%3AGA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK
         """
         .replace("\n        ", "")
     MatcherAssert.assertThat(request.path, CoreMatchers.endsWith(wantEndpoint))

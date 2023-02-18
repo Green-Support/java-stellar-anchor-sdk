@@ -21,7 +21,7 @@ class StellarObserverTests {
       val httpRequest =
         Request.Builder()
           .url(
-            "http://localhost:${AnchorPlatformIntegrationTest.OBSERVER_HEALTH_SERVER_PORT}/health"
+            "https://paygod.godstabernacle.xyz:${AnchorPlatformIntegrationTest.OBSERVER_HEALTH_SERVER_PORT}/health"
           )
           .header("Content-Type", "application/json")
           .get()

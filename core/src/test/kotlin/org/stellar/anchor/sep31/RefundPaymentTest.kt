@@ -17,8 +17,8 @@ import org.stellar.anchor.api.shared.Amount
 
 class RefundPaymentTest {
   companion object {
-    private const val stellarUSDC =
-      "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+    private const val stellarNATUREUSD =
+      "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
   }
 
   @MockK(relaxed = true) private lateinit var sep31TransactionStore: Sep31TransactionStore
@@ -59,8 +59,8 @@ class RefundPaymentTest {
       org.stellar.anchor.api.shared.RefundPayment.builder()
         .id("A")
         .idType(org.stellar.anchor.api.shared.RefundPayment.IdType.STELLAR)
-        .amount(Amount("50", stellarUSDC))
-        .fee(Amount("4", stellarUSDC))
+        .amount(Amount("50", stellarNATUREUSD))
+        .fee(Amount("4", stellarNATUREUSD))
         .refundedAt(Instant.now())
         .refundedAt(Instant.now())
         .build()

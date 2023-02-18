@@ -15,7 +15,7 @@ class PlatformApiTests {
         val platformToAnchorJwtService = JwtService("myAnchorToPlatformSecret", null, null)
         val authHelper =
           AuthHelper.forJwtToken(platformToAnchorJwtService, 900000, "http://localhost:8081")
-        platformApiClient = PlatformApiClient(authHelper, "http://localhost:8080")
+        platformApiClient = PlatformApiClient(authHelper, "https://paygod.godstabernacle.xyz:8080")
       }
     }
 

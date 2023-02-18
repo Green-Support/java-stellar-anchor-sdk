@@ -14,7 +14,7 @@ class Sep31HelperTest {
     val txn = PojoSep31Transaction()
     txn.amountIn = "100"
     assertFalse(Sep31Helper.allAmountAvailable(txn))
-    txn.amountInAsset = "USDC"
+    txn.amountInAsset = "NATUREUSD"
     assertFalse(Sep31Helper.allAmountAvailable(txn))
     txn.amountOut = "500"
     assertFalse(Sep31Helper.allAmountAvailable(txn))
@@ -22,7 +22,7 @@ class Sep31HelperTest {
     assertFalse(Sep31Helper.allAmountAvailable(txn))
     txn.amountFee = "5"
     assertFalse(Sep31Helper.allAmountAvailable(txn))
-    txn.amountFeeAsset = "USDC"
+    txn.amountFeeAsset = "NATUREUSD"
     assertTrue(Sep31Helper.allAmountAvailable(txn))
   }
 

@@ -44,11 +44,11 @@ class Sep38ServiceTest {
 
   companion object {
     private const val PUBLIC_KEY = "GBJDSMTMG4YBP27ZILV665XBISBBNRP62YB7WZA2IQX2HIPK7ABLF4C2"
-    private const val stellarUSDC =
-      "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+    private const val stellarNATUREUSD =
+      "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
     private const val fiatUSD = "iso4217:USD"
-    private const val stellarJPYC =
-      "stellar:JPYC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
+    private const val stellarNATURENGN =
+      "stellar:NATURENGN:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
   }
 
   private lateinit var sep38Service: Sep38Service
@@ -94,26 +94,26 @@ class Sep38ServiceTest {
     infoResponse.assets.forEach { assetMap[it.asset] = it }
     assertEquals(3, assetMap.size)
 
-    val usdcAsset = assetMap[stellarUSDC]
-    assertNotNull(usdcAsset)
-    assertNull(usdcAsset!!.countryCodes)
-    assertNull(usdcAsset.sellDeliveryMethods)
-    assertNull(usdcAsset.buyDeliveryMethods)
+    val NATUREUSDAsset = assetMap[stellarNATUREUSD]
+    assertNotNull(NATUREUSDAsset)
+    assertNull(NATUREUSDAsset!!.countryCodes)
+    assertNull(NATUREUSDAsset.sellDeliveryMethods)
+    assertNull(NATUREUSDAsset.buyDeliveryMethods)
     var wantAssets =
-      listOf(fiatUSD, "stellar:JPYC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5")
-    assertTrue(usdcAsset.exchangeableAssetNames.containsAll(wantAssets))
-    assertTrue(wantAssets.containsAll(usdcAsset.exchangeableAssetNames))
+      listOf(fiatUSD, "stellar:NATURENGN:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5")
+    assertTrue(NATUREUSDAsset.exchangeableAssetNames.containsAll(wantAssets))
+    assertTrue(wantAssets.containsAll(NATUREUSDAsset.exchangeableAssetNames))
 
-    val stellarJPYC =
-      assetMap["stellar:JPYC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"]
-    assertNotNull(stellarJPYC)
-    assertNull(stellarJPYC!!.countryCodes)
-    assertNull(stellarJPYC.sellDeliveryMethods)
-    assertNull(stellarJPYC.buyDeliveryMethods)
-    wantAssets = listOf(fiatUSD, stellarUSDC)
-    println(stellarJPYC.exchangeableAssetNames)
-    assertTrue(stellarJPYC.exchangeableAssetNames.containsAll(wantAssets))
-    assertTrue(wantAssets.containsAll(stellarJPYC.exchangeableAssetNames))
+    val stellarNATURENGN =
+      assetMap["stellar:NATURENGN:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"]
+    assertNotNull(stellarNATURENGN)
+    assertNull(stellarNATURENGN!!.countryCodes)
+    assertNull(stellarNATURENGN.sellDeliveryMethods)
+    assertNull(stellarNATURENGN.buyDeliveryMethods)
+    wantAssets = listOf(fiatUSD, stellarNATUREUSD)
+    println(stellarNATURENGN.exchangeableAssetNames)
+    assertTrue(stellarNATURENGN.exchangeableAssetNames.containsAll(wantAssets))
+    assertTrue(wantAssets.containsAll(stellarNATURENGN.exchangeableAssetNames))
 
     val fiatUSD = assetMap[fiatUSD]
     assertNotNull(fiatUSD)
@@ -131,7 +131,10 @@ class Sep38ServiceTest {
       )
     assertEquals(listOf(wantBuyDeliveryMethod), fiatUSD.buyDeliveryMethods)
     wantAssets =
-      listOf("stellar:JPYC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5", stellarUSDC)
+      listOf(
+        "stellar:NATURENGN:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5",
+        stellarNATUREUSD
+      )
     assertTrue(fiatUSD.exchangeableAssetNames.containsAll(wantAssets))
     assertTrue(wantAssets.containsAll(fiatUSD.exchangeableAssetNames))
   }
@@ -203,7 +206,7 @@ class Sep38ServiceTest {
       GetRateRequest.builder()
         .type(INDICATIVE_PRICES)
         .sellAsset(fiatUSD)
-        .buyAsset("stellar:JPYC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5")
+        .buyAsset("stellar:NATURENGN:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5")
         .sellAmount("100")
         .build()
     every { mockRateIntegration.getRate(getRateReq1) } returns
@@ -213,7 +216,7 @@ class Sep38ServiceTest {
       GetRateRequest.builder()
         .type(INDICATIVE_PRICES)
         .sellAsset(fiatUSD)
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .sellAmount("100")
         .build()
     every { mockRateIntegration.getRate(getRateReq2) } returns
@@ -231,8 +234,8 @@ class Sep38ServiceTest {
     var gotResponse: GetPricesResponse? = null
     assertDoesNotThrow { gotResponse = sep38Service.getPrices(fiatUSD, "100", null, null, null) }
     val wantResponse = GetPricesResponse()
-    wantResponse.addAsset(stellarJPYC, 7, "1")
-    wantResponse.addAsset(stellarUSDC, 7, "2")
+    wantResponse.addAsset(stellarNATURENGN, 7, "1")
+    wantResponse.addAsset(stellarNATUREUSD, 7, "2")
     assertEquals(wantResponse, gotResponse)
   }
 
@@ -244,7 +247,7 @@ class Sep38ServiceTest {
       GetRateRequest.builder()
         .type(INDICATIVE_PRICES)
         .sellAsset(fiatUSD)
-        .buyAsset("stellar:JPYC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5")
+        .buyAsset("stellar:NATURENGN:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5")
         .sellAmount("100")
         .countryCode("USA")
         .sellDeliveryMethod("WIRE")
@@ -256,7 +259,7 @@ class Sep38ServiceTest {
       GetRateRequest.builder()
         .type(INDICATIVE_PRICES)
         .sellAsset(fiatUSD)
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .sellAmount("100")
         .countryCode("USA")
         .sellDeliveryMethod("WIRE")
@@ -276,8 +279,8 @@ class Sep38ServiceTest {
     var gotResponse: GetPricesResponse? = null
     assertDoesNotThrow { gotResponse = sep38Service.getPrices(fiatUSD, "100", "WIRE", null, "USA") }
     val wantResponse = GetPricesResponse()
-    wantResponse.addAsset(stellarJPYC, 7, "1.1")
-    wantResponse.addAsset(stellarUSDC, 7, "2.1")
+    wantResponse.addAsset(stellarNATURENGN, 7, "1.1")
+    wantResponse.addAsset(stellarNATUREUSD, 7, "2.1")
     assertEquals(wantResponse, gotResponse)
   }
 
@@ -288,7 +291,7 @@ class Sep38ServiceTest {
     val getRateReq1 =
       GetRateRequest.builder()
         .type(INDICATIVE_PRICES)
-        .sellAsset(stellarUSDC)
+        .sellAsset(stellarNATUREUSD)
         .buyAsset(fiatUSD)
         .sellAmount("100")
         .buyDeliveryMethod("WIRE")
@@ -307,7 +310,7 @@ class Sep38ServiceTest {
     // test happy path with the minimum parameters and specify buy_delivery_method
     var gotResponse: GetPricesResponse? = null
     assertDoesNotThrow {
-      gotResponse = sep38Service.getPrices(stellarUSDC, "100", null, "WIRE", null)
+      gotResponse = sep38Service.getPrices(stellarNATUREUSD, "100", null, "WIRE", null)
     }
     val wantResponse = GetPricesResponse()
     wantResponse.addAsset(fiatUSD, 4, "1")
@@ -358,7 +361,7 @@ class Sep38ServiceTest {
     assertEquals("buy_asset not found", ex.message)
 
     // both sell_amount & buy_amount are empty
-    getPriceRequestBuilder = getPriceRequestBuilder.buyAssetName(stellarUSDC)
+    getPriceRequestBuilder = getPriceRequestBuilder.buyAssetName(stellarNATUREUSD)
     ex = assertThrows { sep38Service.getPrice(getPriceRequestBuilder.build()) }
     assertInstanceOf(BadRequestException::class.java, ex)
     assertEquals("Please provide either sell_amount or buy_amount", ex.message)
@@ -446,7 +449,8 @@ class Sep38ServiceTest {
 
     // buy_amount specified, but resulting sell_amount should be within limit
     getPriceRequestBuilder = getPriceRequestBuilder.sellAmount(null)
-    getPriceRequestBuilder = getPriceRequestBuilder.buyAssetName(stellarUSDC).buyAmount("100000000")
+    getPriceRequestBuilder =
+      getPriceRequestBuilder.buyAssetName(stellarNATUREUSD).buyAmount("100000000")
     every { mockRateIntegration.getRate(any()) } returns
       GetRateResponse.indicativePrice(
         "1.02",
@@ -480,7 +484,7 @@ class Sep38ServiceTest {
         .context(SEP31)
         .sellAsset(fiatUSD)
         .sellAmount("100")
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .build()
     every { mockRateIntegration.getRate(getRateReq) } returns
       GetRateResponse.indicativePrice("1.02", "1.03", "100", "97.0874", mockFee)
@@ -498,7 +502,7 @@ class Sep38ServiceTest {
       Sep38GetPriceRequest.builder()
         .sellAssetName(fiatUSD)
         .sellAmount("100")
-        .buyAssetName(stellarUSDC)
+        .buyAssetName(stellarNATUREUSD)
         .context(SEP31)
         .build()
     var gotResponse: GetPriceResponse? = null
@@ -526,7 +530,7 @@ class Sep38ServiceTest {
         .context(SEP31)
         .sellAsset(fiatUSD)
         .buyAmount("100")
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .build()
     every { mockRateIntegration.getRate(getRateReq) } returns
       GetRateResponse.indicativePrice("1.02", "1.03", "103", "100", mockFee)
@@ -543,7 +547,7 @@ class Sep38ServiceTest {
     val getPriceRequest =
       Sep38GetPriceRequest.builder()
         .sellAssetName(fiatUSD)
-        .buyAssetName(stellarUSDC)
+        .buyAssetName(stellarNATUREUSD)
         .buyAmount("100")
         .context(SEP31)
         .build()
@@ -571,7 +575,7 @@ class Sep38ServiceTest {
         .type(INDICATIVE_PRICE)
         .context(SEP6)
         .sellAsset(fiatUSD)
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .sellAmount("100")
         .countryCode("USA")
         .sellDeliveryMethod("WIRE")
@@ -593,7 +597,7 @@ class Sep38ServiceTest {
         .sellAssetName(fiatUSD)
         .sellAmount("100")
         .sellDeliveryMethod("WIRE")
-        .buyAssetName(stellarUSDC)
+        .buyAssetName(stellarNATUREUSD)
         .countryCode("USA")
         .context(SEP6)
         .build()
@@ -621,7 +625,7 @@ class Sep38ServiceTest {
         .type(INDICATIVE_PRICE)
         .context(SEP31)
         .sellAsset(fiatUSD)
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .buyAmount("100")
         .countryCode("USA")
         .sellDeliveryMethod("WIRE")
@@ -643,7 +647,7 @@ class Sep38ServiceTest {
       Sep38GetPriceRequest.builder()
         .sellAssetName(fiatUSD)
         .sellDeliveryMethod("WIRE")
-        .buyAssetName(stellarUSDC)
+        .buyAssetName(stellarNATUREUSD)
         .buyAmount("100")
         .countryCode("USA")
         .context(SEP31)
@@ -744,7 +748,10 @@ class Sep38ServiceTest {
     ex = assertThrows {
       sep38Service.postQuote(
         token,
-        Sep38PostQuoteRequest.builder().sellAssetName(fiatUSD).buyAssetName(stellarUSDC).build()
+        Sep38PostQuoteRequest.builder()
+          .sellAssetName(fiatUSD)
+          .buyAssetName(stellarNATUREUSD)
+          .build()
       )
     }
     assertInstanceOf(BadRequestException::class.java, ex)
@@ -757,7 +764,7 @@ class Sep38ServiceTest {
         Sep38PostQuoteRequest.builder()
           .sellAssetName(fiatUSD)
           .sellAmount("100")
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .buyAmount("100")
           .build()
       )
@@ -772,7 +779,7 @@ class Sep38ServiceTest {
         Sep38PostQuoteRequest.builder()
           .sellAssetName(fiatUSD)
           .sellAmount("foo")
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .build()
       )
     }
@@ -786,7 +793,7 @@ class Sep38ServiceTest {
         Sep38PostQuoteRequest.builder()
           .sellAssetName(fiatUSD)
           .sellAmount("-0.01")
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .build()
       )
     }
@@ -800,7 +807,7 @@ class Sep38ServiceTest {
         Sep38PostQuoteRequest.builder()
           .sellAssetName(fiatUSD)
           .sellAmount("0")
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .build()
       )
     }
@@ -813,7 +820,7 @@ class Sep38ServiceTest {
         token,
         Sep38PostQuoteRequest.builder()
           .sellAssetName(fiatUSD)
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .buyAmount("bar")
           .build()
       )
@@ -827,7 +834,7 @@ class Sep38ServiceTest {
         token,
         Sep38PostQuoteRequest.builder()
           .sellAssetName(fiatUSD)
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .buyAmount("-0.02")
           .build()
       )
@@ -841,7 +848,7 @@ class Sep38ServiceTest {
         token,
         Sep38PostQuoteRequest.builder()
           .sellAssetName(fiatUSD)
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .buyAmount("0")
           .build()
       )
@@ -857,7 +864,7 @@ class Sep38ServiceTest {
           .sellAssetName(fiatUSD)
           .sellAmount("1.23")
           .sellDeliveryMethod("FOO")
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .build()
       )
     }
@@ -872,7 +879,7 @@ class Sep38ServiceTest {
           .sellAssetName(fiatUSD)
           .sellAmount("1.23")
           .sellDeliveryMethod("WIRE")
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .buyDeliveryMethod("BAR")
           .build()
       )
@@ -888,7 +895,7 @@ class Sep38ServiceTest {
           .sellAssetName(fiatUSD)
           .sellAmount("1.23")
           .sellDeliveryMethod("WIRE")
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .countryCode("BRA")
           .build()
       )
@@ -904,7 +911,7 @@ class Sep38ServiceTest {
           .sellAssetName(fiatUSD)
           .sellAmount("1.23")
           .sellDeliveryMethod("WIRE")
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .countryCode("USA")
           .expireAfter("2022-04-18T23:33:24.629719Z")
           .build()
@@ -922,7 +929,7 @@ class Sep38ServiceTest {
           .sellAmount("100000000")
           .sellDeliveryMethod("WIRE")
           .context(SEP31)
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .countryCode("USA")
           .build()
       )
@@ -939,7 +946,7 @@ class Sep38ServiceTest {
           .sellAmount("0.5")
           .sellDeliveryMethod("WIRE")
           .context(SEP31)
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .countryCode("USA")
           .build()
       )
@@ -963,7 +970,7 @@ class Sep38ServiceTest {
           .sellAssetName(fiatUSD)
           .sellDeliveryMethod("WIRE")
           .context(SEP31)
-          .buyAssetName(stellarUSDC)
+          .buyAssetName(stellarNATUREUSD)
           .buyAmount("100000000")
           .countryCode("USA")
           .build()
@@ -985,7 +992,7 @@ class Sep38ServiceTest {
         .context(SEP31)
         .sellAsset(fiatUSD)
         .sellAmount("103")
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .clientId(PUBLIC_KEY)
         .build()
     val tomorrow = Instant.now().plus(1, ChronoUnit.DAYS)
@@ -1029,7 +1036,7 @@ class Sep38ServiceTest {
             .context(SEP31)
             .sellAssetName(fiatUSD)
             .sellAmount("103")
-            .buyAssetName(stellarUSDC)
+            .buyAssetName(stellarNATUREUSD)
             .build()
         )
     }
@@ -1041,7 +1048,7 @@ class Sep38ServiceTest {
         .totalPrice("1.03")
         .sellAsset(fiatUSD)
         .sellAmount("103")
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .buyAmount("100")
         .fee(mockFee)
         .build()
@@ -1056,7 +1063,7 @@ class Sep38ServiceTest {
     assertEquals("1.03", savedQuote.totalPrice)
     assertEquals(fiatUSD, savedQuote.sellAsset)
     assertEquals("103", savedQuote.sellAmount)
-    assertEquals(stellarUSDC, savedQuote.buyAsset)
+    assertEquals(stellarNATUREUSD, savedQuote.buyAsset)
     assertEquals("100", savedQuote.buyAmount)
     assertEquals(PUBLIC_KEY, savedQuote.creatorAccountId)
     assertNotNull(savedQuote.createdAt)
@@ -1072,7 +1079,7 @@ class Sep38ServiceTest {
     wantEvent.quote.id = "123"
     wantEvent.quote.sellAsset = fiatUSD
     wantEvent.quote.sellAmount = "103"
-    wantEvent.quote.buyAsset = stellarUSDC
+    wantEvent.quote.buyAsset = stellarNATUREUSD
     wantEvent.quote.buyAmount = "100"
     wantEvent.quote.expiresAt = tomorrow
     wantEvent.quote.price = "1.02"
@@ -1097,7 +1104,7 @@ class Sep38ServiceTest {
         .type(FIRM)
         .context(SEP6)
         .sellAsset(fiatUSD)
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .buyAmount("100")
         .clientId(PUBLIC_KEY)
         .build()
@@ -1141,7 +1148,7 @@ class Sep38ServiceTest {
           Sep38PostQuoteRequest.builder()
             .context(SEP6)
             .sellAssetName(fiatUSD)
-            .buyAssetName(stellarUSDC)
+            .buyAssetName(stellarNATUREUSD)
             .buyAmount("100")
             .build()
         )
@@ -1154,7 +1161,7 @@ class Sep38ServiceTest {
         .price("1.02")
         .sellAsset(fiatUSD)
         .sellAmount("103")
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .buyAmount("100")
         .fee(mockFee)
         .build()
@@ -1169,7 +1176,7 @@ class Sep38ServiceTest {
     assertEquals("1.03", savedQuote.totalPrice)
     assertEquals(fiatUSD, savedQuote.sellAsset)
     assertEquals("103", savedQuote.sellAmount)
-    assertEquals(stellarUSDC, savedQuote.buyAsset)
+    assertEquals(stellarNATUREUSD, savedQuote.buyAsset)
     assertEquals("100", savedQuote.buyAmount)
     assertEquals(PUBLIC_KEY, savedQuote.creatorAccountId)
     assertNotNull(savedQuote.createdAt)
@@ -1184,7 +1191,7 @@ class Sep38ServiceTest {
     wantEvent.quote.id = "456"
     wantEvent.quote.sellAsset = fiatUSD
     wantEvent.quote.sellAmount = "103"
-    wantEvent.quote.buyAsset = stellarUSDC
+    wantEvent.quote.buyAsset = stellarNATUREUSD
     wantEvent.quote.buyAmount = "100"
     wantEvent.quote.expiresAt = tomorrow
     wantEvent.quote.price = "1.02"
@@ -1212,7 +1219,7 @@ class Sep38ServiceTest {
         .sellAsset(fiatUSD)
         .sellAmount("100")
         .sellDeliveryMethod("WIRE")
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .countryCode("USA")
         .clientId(PUBLIC_KEY)
         .expireAfter(now.toString())
@@ -1258,7 +1265,7 @@ class Sep38ServiceTest {
             .sellAssetName(fiatUSD)
             .sellAmount("100")
             .sellDeliveryMethod("WIRE")
-            .buyAssetName(stellarUSDC)
+            .buyAssetName(stellarNATUREUSD)
             .countryCode("USA")
             .expireAfter(now.toString())
             .build()
@@ -1272,7 +1279,7 @@ class Sep38ServiceTest {
         .totalPrice("1.03")
         .sellAsset(fiatUSD)
         .sellAmount("100")
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .buyAmount("97.0873786")
         .fee(mockFee)
         .build()
@@ -1288,7 +1295,7 @@ class Sep38ServiceTest {
     assertEquals(fiatUSD, savedQuote.sellAsset)
     assertEquals("100", savedQuote.sellAmount)
     assertEquals("WIRE", savedQuote.sellDeliveryMethod)
-    assertEquals(stellarUSDC, savedQuote.buyAsset)
+    assertEquals(stellarNATUREUSD, savedQuote.buyAsset)
     assertEquals("97.0873786", savedQuote.buyAmount)
     assertEquals(PUBLIC_KEY, savedQuote.creatorAccountId)
     assertNotNull(savedQuote.createdAt)
@@ -1304,7 +1311,7 @@ class Sep38ServiceTest {
     wantEvent.quote.id = "123"
     wantEvent.quote.sellAsset = fiatUSD
     wantEvent.quote.sellAmount = "100"
-    wantEvent.quote.buyAsset = stellarUSDC
+    wantEvent.quote.buyAsset = stellarNATUREUSD
     wantEvent.quote.buyAmount = "97.0873786"
     wantEvent.quote.expiresAt = tomorrow
     wantEvent.quote.price = "1.02"
@@ -1330,7 +1337,7 @@ class Sep38ServiceTest {
         .context(SEP31)
         .sellAsset(fiatUSD)
         .sellDeliveryMethod("WIRE")
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .buyAmount("100")
         .countryCode("USA")
         .clientId(PUBLIC_KEY)
@@ -1376,7 +1383,7 @@ class Sep38ServiceTest {
             .context(SEP31)
             .sellAssetName(fiatUSD)
             .sellDeliveryMethod("WIRE")
-            .buyAssetName(stellarUSDC)
+            .buyAssetName(stellarNATUREUSD)
             .buyAmount("100")
             .countryCode("USA")
             .expireAfter(now.toString())
@@ -1391,7 +1398,7 @@ class Sep38ServiceTest {
         .totalPrice("1.03")
         .sellAsset(fiatUSD)
         .sellAmount("103")
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .buyAmount("100")
         .fee(mockFee)
         .build()
@@ -1407,7 +1414,7 @@ class Sep38ServiceTest {
     assertEquals(fiatUSD, savedQuote.sellAsset)
     assertEquals("103", savedQuote.sellAmount)
     assertEquals("WIRE", savedQuote.sellDeliveryMethod)
-    assertEquals(stellarUSDC, savedQuote.buyAsset)
+    assertEquals(stellarNATUREUSD, savedQuote.buyAsset)
     assertEquals("100", savedQuote.buyAmount)
     assertEquals(PUBLIC_KEY, savedQuote.creatorAccountId)
     assertEquals(mockFee, savedQuote.fee)
@@ -1423,7 +1430,7 @@ class Sep38ServiceTest {
     wantEvent.quote.id = "456"
     wantEvent.quote.sellAsset = fiatUSD
     wantEvent.quote.sellAmount = "103"
-    wantEvent.quote.buyAsset = stellarUSDC
+    wantEvent.quote.buyAsset = stellarNATUREUSD
     wantEvent.quote.buyAmount = "100"
     wantEvent.quote.expiresAt = tomorrow
     wantEvent.quote.price = "1.02"
@@ -1475,7 +1482,7 @@ class Sep38ServiceTest {
         .sellAsset(fiatUSD)
         .sellAmount("100")
         .sellDeliveryMethod("WIRE")
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .buyAmount("98.0392157")
         .createdAt(now)
     }
@@ -1541,7 +1548,7 @@ class Sep38ServiceTest {
         .sellAsset(fiatUSD)
         .sellAmount("100")
         .sellDeliveryMethod("WIRE")
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .buyAmount("97.0873786")
         .createdAt(now)
         .creatorAccountId(PUBLIC_KEY)
@@ -1568,7 +1575,7 @@ class Sep38ServiceTest {
         .totalPrice("1.03")
         .sellAsset(fiatUSD)
         .sellAmount("100")
-        .buyAsset(stellarUSDC)
+        .buyAsset(stellarNATUREUSD)
         .buyAmount("97.0873786")
         .fee(mockFee)
         .build()

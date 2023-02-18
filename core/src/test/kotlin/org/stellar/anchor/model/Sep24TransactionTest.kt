@@ -23,9 +23,9 @@ internal class Sep24TransactionTest {
         .withdrawAnchorAccount("account")
         .memo("memo")
         .amountFee("20")
-        .amountInAsset("USDC_In")
-        .amountOutAsset("USDC_Out")
-        .amountFeeAsset("USDC_Fee")
+        .amountInAsset("NATUREUSD_In")
+        .amountOutAsset("NATUREUSD_Out")
+        .amountFeeAsset("NATUREUSD_Fee")
         .build()
 
     assertEquals(txn.transactionId, "txnId")
@@ -33,8 +33,8 @@ internal class Sep24TransactionTest {
     assertEquals(txn.withdrawAnchorAccount, "account")
     assertEquals(txn.memo, "memo")
     assertEquals(txn.amountFee, "20")
-    assertEquals(txn.amountInAsset, "USDC_In")
-    assertEquals(txn.amountOutAsset, "USDC_Out")
-    assertEquals(txn.amountFeeAsset, "USDC_Fee")
+    assertEquals(txn.amountInAsset, "NATUREUSD_In")
+    assertEquals(txn.amountOutAsset, "NATUREUSD_Out")
+    assertEquals(txn.amountFeeAsset, "NATUREUSD_Fee")
   }
 }

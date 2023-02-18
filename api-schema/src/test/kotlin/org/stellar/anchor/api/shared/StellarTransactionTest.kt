@@ -6,15 +6,15 @@ import org.junit.jupiter.api.Test
 
 class StellarTransactionTest {
   companion object {
-    private const val stellarUSDC =
-      "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+    private const val stellarNATUREUSD =
+      "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
   }
 
   private val createdAt = Instant.now()
   private val mockPayment1 =
     StellarPayment.builder()
       .id("1111")
-      .amount(Amount("100.0000", stellarUSDC))
+      .amount(Amount("100.0000", stellarNATUREUSD))
       .paymentType(StellarPayment.Type.PAYMENT)
       .sourceAccount("GAS4OW4HKJCC2D6VWUHVFR3MJRRVQBXBFQ3LCZJXBR7TWOOBJWE4SRWZ")
       .destinationAccount("GBQC7NCZMQIPWN6ASUJYIDKDPRK34IOIZNQE5WOHPQH536VMOMQVJTN7")
@@ -22,7 +22,7 @@ class StellarTransactionTest {
   private val mockPayment2 =
     StellarPayment.builder()
       .id("2222")
-      .amount(Amount("200.0000", stellarUSDC))
+      .amount(Amount("200.0000", stellarNATUREUSD))
       .paymentType(StellarPayment.Type.PAYMENT)
       .sourceAccount("GAS4OW4HKJCC2D6VWUHVFR3MJRRVQBXBFQ3LCZJXBR7TWOOBJWE4SRWZ")
       .destinationAccount("GBQC7NCZMQIPWN6ASUJYIDKDPRK34IOIZNQE5WOHPQH536VMOMQVJTN7")
@@ -30,7 +30,7 @@ class StellarTransactionTest {
   private val mockPayment3 =
     StellarPayment.builder()
       .id("3333")
-      .amount(Amount("300.0000", stellarUSDC))
+      .amount(Amount("300.0000", stellarNATUREUSD))
       .paymentType(StellarPayment.Type.PAYMENT)
       .sourceAccount("GAS4OW4HKJCC2D6VWUHVFR3MJRRVQBXBFQ3LCZJXBR7TWOOBJWE4SRWZ")
       .destinationAccount("GBQC7NCZMQIPWN6ASUJYIDKDPRK34IOIZNQE5WOHPQH536VMOMQVJTN7")

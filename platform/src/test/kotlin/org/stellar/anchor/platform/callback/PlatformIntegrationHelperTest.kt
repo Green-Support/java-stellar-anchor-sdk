@@ -16,7 +16,7 @@ import org.stellar.anchor.auth.Sep10Jwt
 class PlatformIntegrationHelperTest {
   companion object {
     const val JWT_EXPIRATION_MILLISECONDS: Long = 90000
-    const val TEST_HOME_DOMAIN = "http://localhost:8080"
+    const val TEST_HOME_DOMAIN = "https://paygod.godstabernacle.xyz:8080"
   }
 
   @AfterEach

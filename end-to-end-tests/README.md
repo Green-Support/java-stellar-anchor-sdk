@@ -40,4 +40,4 @@ python anchor_platform_functional_test.py --domain anchor-sep-server-dev.stellar
 ```
 
 
-Note: The Stellar account derived from  <STELLAR_SECRET_KEY> should have own assets used in the tests (USDC, JPYC)
+Note: The Stellar account derived from  <STELLAR_SECRET_KEY> should have own assets used in the tests (NATUREUSD, NATURENGN)

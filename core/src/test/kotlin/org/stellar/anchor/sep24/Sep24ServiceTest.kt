@@ -131,12 +131,18 @@ internal class Sep24ServiceTest {
     assert(response.url.startsWith(TEST_SEP24_INTERACTIVE_URL))
     assertNotNull(response.id)
 
+
+    assertEquals(slotTxn.captured.status, "incomplete")
+    assertEquals(slotTxn.captured.kind, "withdrawal")
+    assertEquals(slotTxn.captured.requestAssetCode, "NATUREUSD")
+
     assertEquals("incomplete", slotTxn.captured.status)
     assertEquals("withdrawal", slotTxn.captured.kind)
-    assertEquals("USDC", slotTxn.captured.requestAssetCode)
+    assertEquals("NATUREUSD", slotTxn.captured.requestAssetCode)
+
     assertEquals(
       slotTxn.captured.requestAssetIssuer,
-      "GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP"
+      "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
     )
     assertEquals(TEST_ACCOUNT, slotTxn.captured.fromAccount)
     assertEquals(TEST_CLIENT_DOMAIN, slotTxn.captured.clientDomain)
@@ -211,7 +217,7 @@ internal class Sep24ServiceTest {
 
     assertThrows<SepValidationException> {
       val request = createTestTransactionRequest()
-      request["asset_code"] = "USDC_NA"
+      request["asset_code"] = "NATUREUSD_NA"
       sep24Service.withdraw(createJwtToken(), request)
     }
 
@@ -322,7 +328,7 @@ internal class Sep24ServiceTest {
 
     assertThrows<SepValidationException> {
       val request = createTestTransactionRequest()
-      request["asset_code"] = "USDC_NA"
+      request["asset_code"] = "NATUREUSD_NA"
       sep24Service.deposit(createJwtToken(), request)
     }
 
@@ -460,8 +466,8 @@ internal class Sep24ServiceTest {
 
     assertEquals(3, response.deposit.size)
     assertEquals(1, response.withdraw.size)
-    assertNotNull(response.deposit["USDC"])
-    assertNotNull(response.withdraw["USDC"])
+    assertNotNull(response.deposit["NATUREUSD"])
+    assertNotNull(response.withdraw["NATUREUSD"])
     assertTrue(response.fee.enabled)
   }
 

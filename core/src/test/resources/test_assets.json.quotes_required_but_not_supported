@@ -2,16 +2,16 @@
   "assets": [
     {
       "schema": "stellar",
-      "code": "USDC",
-      "issuer": "GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5",
+      "code": "NATUREUSD",
+      "issuer": "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
       "sep31" : {
         "quotes_supported": false,
         "quotes_required": true
       },
-      "sep6_enabled": false,
-      "sep24_enabled": false,
+      "sep6_enabled": true,
+      "sep24_enabled": true,
       "sep31_enabled": true,
-      "sep38_enabled": false
+      "sep38_enabled": true
     },
   ]
 }

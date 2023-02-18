@@ -2,27 +2,27 @@
     "assets": [
         {
             "schema": "stellar",
-            "code": "USDC",
-            "issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+            "code": "NATUREUSD",
+            "issuer": "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
             "significant_decimals": 2,
             "deposit" : {
                 "enabled": true,
                 "fee_minimum": 0,
-                "fee_percent": 0,
-                "min_amount": 0,
+                "fee_percent": 1,
+                "min_amount": 1,
                 "max_amount": 10000
             },
             "withdraw": {
                 "enabled": true,
                 "fee_fixed": 0,
-                "fee_percent": 0,
-                "min_amount": 0,
+                "fee_percent": 1,
+                "min_amount": 1,
                 "max_amount": 10000
             },
             "send": {
                 "fee_fixed": 0,
-                "fee_percent": 0,
-                "min_amount": 0,
+                "fee_percent": 1,
+                "min_amount": 1,
                 "max_amount": 10000
             },
             "sep38": {
@@ -39,26 +39,26 @@
             "deposit" : {
                 "enabled": true,
                 "fee_minimum": 0,
-                "fee_percent": 0,
-                "min_amount": 0,
+                "fee_percent": 1,
+                "min_amount": 1,
                 "max_amount": 10000
             },
             "withdraw": {
                 "enabled": true,
                 "fee_fixed": 0,
-                "fee_percent": 0,
-                "min_amount": 0,
+                "fee_percent": 1,
+                "min_amount": 1,
                 "max_amount": 10000
             },
             "send": {
                 "fee_fixed": 0,
-                "fee_percent": 0,
-                "min_amount": 0,
+                "fee_percent": 1,
+                "min_amount": 1,
                 "max_amount": 10000
             },
             "sep38": {
                 "exchangeable_assets": [
-                    "stellar:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN"
+                    "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
                 ],
                 "country_codes": ["USA"],
                 "decimals": 4,

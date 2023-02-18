@@ -19,7 +19,7 @@ class AppConfigTest {
     config = PropertyAppConfig()
     config.stellarNetworkPassphrase = "Test SDF Network ; September 2015"
     config.horizonUrl = "https://horizon-testnet.stellar.org"
-    config.hostUrl = "http://localhost:8080"
+    config.hostUrl = "https://paygod.godstabernacle.xyz:8080"
     errors = BindException(config, "config")
   }
 
@@ -33,7 +33,9 @@ class AppConfigTest {
   }
 
   @ParameterizedTest
-  @ValueSource(strings = ["https://stellar.org", "https://stellar.org:8080"])
+  @ValueSource(
+    strings = ["https://paygod.godstabernacle.xyz", "https://paygod.godstabernacle.xyz:8080"]
+  )
   fun `test valid host_url`(url: String) {
     config.hostUrl = url
     config.validateConfig(config, errors)

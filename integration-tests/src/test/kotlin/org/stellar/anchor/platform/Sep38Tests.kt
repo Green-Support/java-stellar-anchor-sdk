@@ -36,7 +36,7 @@ class Sep38Tests {
         sep38Client.getPrice(
           "iso4217:USD",
           "100",
-          "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+          "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
           SEP31
         )
       printResponse(price)
@@ -47,7 +47,7 @@ class Sep38Tests {
         sep38Client.postQuote(
           "iso4217:USD",
           "100",
-          "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+          "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
           SEP31
         )
       printResponse(postQuote)
@@ -60,7 +60,7 @@ class Sep38Tests {
         sep38Client.postQuote(
           "iso4217:USD",
           "100",
-          "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+          "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
           SEP31,
           expireAfter = expireAfter
         )
@@ -80,7 +80,7 @@ class Sep38Tests {
         sep38Client.getPrice(
           "iso4217:USD",
           "10000000000",
-          "stellar:USDC:GDQOE23CFSUMSVQK4Y5JHPPYK73VYCNHZHA7ENKCV37P6SUEO6XQBKPP",
+          "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK",
           SEP31
         )
       }

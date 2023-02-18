@@ -10,12 +10,12 @@ DIRECT_PAYMENT_SERVER = "https://www.stellaranchordemo.com/sep31"
 ANCHOR_QUOTE_SERVER = "https://www.stellaranchordemo.com/sep38"
 
 [[CURRENCIES]]
-code = "USDC"
+code = "NATUREUSD"
 issuer = "GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
 status = "test"
 is_asset_anchored = true
 anchor_asset_type = "fiat"
-desc = "A test USDC issued by Circle."
+desc = "A test NATUREUSD issued by Circle."
 
 [DOCUMENTATION]
 ORG_NAME = "your_org_name1"

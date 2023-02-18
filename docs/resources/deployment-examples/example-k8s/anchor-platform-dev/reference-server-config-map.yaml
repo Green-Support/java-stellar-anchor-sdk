@@ -16,13 +16,13 @@ data:
     #
     anchor.settings:
       version: 0.0.1
-      platformApiEndpoint: https://anchor-sep-server-dev.stellar.org
-      distributionWallet: GBN4NNCDGJO4XW4KQU3CBIESUJWFVBUZPOKUZHT7W7WRB7CWOA7BXVQF
+      platformApiEndpoint: https://paygod.godstabernacle.xyz:8080
+      distributionWallet: GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV
       distributionWalletMemo:
       distributionWalletMemoType:    
 
     integration-auth:
-      authType: none
+      authType: JWT
       platformToAnchorSecret: myPlatformToAnchorSecret
       anchorToPlatformSecret: myAnchorToPlatformSecret
       expirationMilliseconds: 30000

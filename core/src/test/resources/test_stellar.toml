@@ -1,22 +1,28 @@
-ACCOUNTS = []
-VERSION = "0.1.0"
+ACCOUNTS = ["GAIXTJGANTERAERDZN72GJTAU4YYEFH2HZNKDDBWQKFY7W6LC4WLLVHV"]
+VERSION = "2.5.0"
 NETWORK_PASSPHRASE = "Test SDF Network ; September 2015"
-SIGNING_KEY = "GCHLHDBOKG2JWMJQBTLSL5XG6NO7ESXI2TAQKZXCXWXB5WI2X6W233PR"
+SIGNING_KEY = "GCJIKEKFS5YQP6OE7E6AALGD53NKFOHO6G7TGSMAB4X264SIFDOIVHP5"
 
-WEB_AUTH_ENDPOINT = "http://localhost:9800/auth"
-ANCHOR_QUOTE_SERVER = "http://localhost:8080/sep38"
+WEB_AUTH_ENDPOINT = "https://paygod.godstabernacle.xyz:9800/auth"
+ANCHOR_QUOTE_SERVER = "https://paygod.godstabernacle.xyz:8080/sep38"
 
 [[CURRENCIES]]
-code = "USDC"
-issuer = "GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
+code = "NATUREUSD"
+issuer = "GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
+homedomain = "paygod.godstabernacle.xyz"
 status = "test"
+name = "NATURE DOLLAR"
 is_asset_anchored = true
-anchor_asset_type = "fiat"
-desc = "A test USDC issued by Circle."
+anchor_asset_type = "crypto"
+anchor_asset = "NATUREUSD"
+redemption_instructions = "Get your asset via our wallets"
 
 [DOCUMENTATION]
-ORG_NAME = "Stellar Development Foundation"
-ORG_URL = "https://www.stellar.org"
-ORG_DESCRIPTION = "Stellar is an open network for storing and moving money."
-ORG_LOGO="https://assets-global.website-files.com/5deac75ecad2173c2ccccbc7/5dec8960504967fd31147f62_Stellar_lockup_black_RGB.svg"
-ORG_SUPPORT_EMAIL="jamie@stellar.org"
+ORG_NAME = "God's Tabernacle"
+ORG_URL = "https://www.godstabernacle.xyz"
+ORG_LOGO = "https://www.godstabernacle.xyz/logo"
+ORG_DESCRIPTION = "Recreo; Replete Terram"
+ORG_TWITTER = "nature2471"
+ORG_GITHUB = "nature-smartchain"
+ORG_OFFICIAL_EMAIL = "info@godstabernacle.xyz"
+ORG_SUPPORT_EMAIL = "support@godstabernacle.xyz"
