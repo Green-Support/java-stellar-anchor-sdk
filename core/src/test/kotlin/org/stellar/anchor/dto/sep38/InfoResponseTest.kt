@@ -42,7 +42,10 @@ class InfoResponseTest {
     assertNull(stellarNATUREUSD.sellDeliveryMethods)
     assertNull(stellarNATUREUSD.buyDeliveryMethods)
     var wantAssets =
-      listOf("iso4217:USD", "stellar:NATURENGN:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5")
+      listOf(
+        "iso4217:USD",
+        "stellar:NATURENGN:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5"
+      )
     assertTrue(stellarNATUREUSD.exchangeableAssetNames.containsAll(wantAssets))
     assertTrue(wantAssets.containsAll(stellarNATUREUSD.exchangeableAssetNames))
 
@@ -53,7 +56,10 @@ class InfoResponseTest {
     assertNull(stellarNATURENGN.sellDeliveryMethods)
     assertNull(stellarNATURENGN.buyDeliveryMethods)
     wantAssets =
-      listOf("iso4217:USD", "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK")
+      listOf(
+        "iso4217:USD",
+        "stellar:NATUREUSD:GA3BJUBNOIHANBJEKZFSQTCRB5CUQ4GSENQHVC5QNZGGSK3ILAZS6ATK"
+      )
     assertTrue(stellarNATURENGN.exchangeableAssetNames.containsAll(wantAssets))
     assertTrue(wantAssets.containsAll(stellarNATURENGN.exchangeableAssetNames))
 

@@ -33,7 +33,9 @@ class AppConfigTest {
   }
 
   @ParameterizedTest
-  @ValueSource(strings = ["https://paygod.godstabernacle.xyz", "https://paygod.godstabernacle.xyz:8080"])
+  @ValueSource(
+    strings = ["https://paygod.godstabernacle.xyz", "https://paygod.godstabernacle.xyz:8080"]
+  )
   fun `test valid host_url`(url: String) {
     config.hostUrl = url
     config.validateConfig(config, errors)

@@ -45,7 +45,11 @@ class AuthHelperTest {
 
         val jwtService = JwtService("secret", null, null)
         val authHelper =
-          AuthHelper.forJwtToken(jwtService, JWT_EXPIRATION_MILLISECONDS, "https://paygod.godstabernacle.xyz:8080")
+          AuthHelper.forJwtToken(
+            jwtService,
+            JWT_EXPIRATION_MILLISECONDS,
+            "https://paygod.godstabernacle.xyz:8080"
+          )
         val gotAuthHeader = authHelper.createAuthHeader()
         val wantAuthHeader =
           AuthHeader("Authorization", "Bearer ${jwtService.encode(wantJwtToken)}")

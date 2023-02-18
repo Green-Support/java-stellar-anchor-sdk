@@ -131,7 +131,10 @@ class Sep38ServiceTest {
       )
     assertEquals(listOf(wantBuyDeliveryMethod), fiatUSD.buyDeliveryMethods)
     wantAssets =
-      listOf("stellar:NATURENGN:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5", stellarNATUREUSD)
+      listOf(
+        "stellar:NATURENGN:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5",
+        stellarNATUREUSD
+      )
     assertTrue(fiatUSD.exchangeableAssetNames.containsAll(wantAssets))
     assertTrue(wantAssets.containsAll(fiatUSD.exchangeableAssetNames))
   }
@@ -446,7 +449,8 @@ class Sep38ServiceTest {
 
     // buy_amount specified, but resulting sell_amount should be within limit
     getPriceRequestBuilder = getPriceRequestBuilder.sellAmount(null)
-    getPriceRequestBuilder = getPriceRequestBuilder.buyAssetName(stellarNATUREUSD).buyAmount("100000000")
+    getPriceRequestBuilder =
+      getPriceRequestBuilder.buyAssetName(stellarNATUREUSD).buyAmount("100000000")
     every { mockRateIntegration.getRate(any()) } returns
       GetRateResponse.indicativePrice(
         "1.02",
@@ -744,7 +748,10 @@ class Sep38ServiceTest {
     ex = assertThrows {
       sep38Service.postQuote(
         token,
-        Sep38PostQuoteRequest.builder().sellAssetName(fiatUSD).buyAssetName(stellarNATUREUSD).build()
+        Sep38PostQuoteRequest.builder()
+          .sellAssetName(fiatUSD)
+          .buyAssetName(stellarNATUREUSD)
+          .build()
       )
     }
     assertInstanceOf(BadRequestException::class.java, ex)
