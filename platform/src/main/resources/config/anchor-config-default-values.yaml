@@ -137,6 +137,7 @@ events:
 
 assets:
   type: json
+
   value: |
     {
       "assets": [
@@ -353,5 +354,86 @@ assets:
         }
       ]
     }
+=======
+  ## @param: value
+  ## @type: string
+  ## Example of yaml definition:
+  ##   { "assets":
+  ##     [{
+  ##       "schema": "stellar"
+  ##       "code": "USDC"
+  ##       "issuer": "G..."
+  ##       "distribution_account": "G..."
+  ##        ....
+  ##     }]
+  ##   }
+  #
+  value: ""
+
+################################
+## Data Configuration
+################################
+data:
+  ## DB credentials are specified in @environment_variables SECRET_DATA_USERNAME, SECRET_DATA_PASSWORD
+
+  ## @param: type
+  ## @supported_values:
+  ##    `h2` (in-memory), `sqlite` (local), `postgres` (local), `aurora` (postgres on AWS)
+  ## Type of storage.
+  ## If this is set to `aurora`, please follow the `Set up AWS Credentials and Region for Development`
+  ## at https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html
+  #
+  #
+  type: h2
+
+  ## The hostname and port of the database server.
+  server:
+
+  ## Name of the database.
+  database:
+
+  ## @param: initial_connection_pool_size
+  ## @type: integer
+  ## Initial number of connections
+  ## For `sqlite`, set this to 1 to avoid database file lock exception
+  #
+  initial_connection_pool_size: 1
+  ## @param: max_active_connections
+  ## @type: integer
+  ## Maximum number of db active connections
+  ## For `sqlite`, set this to 1 to avoid database file lock exception
+  #
+  max_active_connections: 10
+  ## @param: flyway_enabled
+  ## @type: bool
+  ## Whether to enable flyway.
+  ## Should be disabled for `sqlite` because certain features that flyway uses
+  ## (ex: addForeignKeyConstraint) are not supported.
+  #
+  flyway_enabled: false
+  ## @param: ddl_auto
+  ## @supported_values:
+  ##      `none`:	      (default) No database Schema initialization
+  ##      `create`:	      Drops and creates the schema at the application startup. With this option, all your data will be gone on each startup.
+  ##      `create-drop`:  Creates schema at the startup and destroys the schema on context closure. Useful for unit tests.
+  ##      `validate`:	  Only checks if the Schema matches the Entities. If the schema doesn't match, then the application startup will fail. Makes no changes to the database.
+  ##      `update`:	      Updates the schema only if necessary. For example, If a new field was added in an entity, then it will simply alter the table for a new column without destroying the data.
+  ## This value will be used to configure `spring.jpa.hibernate.ddl-auto` in non-memory databases like SQLite, Postgres, etc.
+  ## ATTENTION: it should not be used in production!
+  #
+  ddl_auto: none
+  ## @param: flyway_enabled
+  ## @type: string
+  ## Location on disk where migrations are stored if flyway is enabled.
+  #
+  flyway_location: /db/migration
+  ## @param: hikari_max_lifetime
+  ## @type: integer
+  ## Maximum connection time before expiration
+  ## Only valid when database `type` is `aurora`.
+  ## Recommended setting is 14 minutes because IAM tokens are valid for 15 min.
+  #
+  # hikari_max_lifetime: 840000
+  
 
   

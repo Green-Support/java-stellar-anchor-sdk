@@ -95,9 +95,9 @@ public class TransactionService {
    * @return an object of JdbcSepTransaction
    */
   public JdbcSepTransaction findTransaction(String txnId) throws AnchorException {
-    JdbcSep31Transaction txn31 = (JdbcSep31Transaction) txn31Store.findByTransactionId(txnId);
+    Sep31Transaction txn31 = txn31Store.findByTransactionId(txnId);
     if (txn31 != null) {
-      return txn31;
+      return (JdbcSep31Transaction) txn31;
     }
 
     return (JdbcSep24Transaction) txn24Store.findByTransactionId(txnId);
@@ -218,7 +218,8 @@ public class TransactionService {
       case "31":
         // update message
         if (shouldClearMessageStatus) {
-          txn.setRequiredInfoMessage(null);
+          JdbcSep31Transaction sep31Txn = (JdbcSep31Transaction) txn;
+          sep31Txn.setRequiredInfoMessage(null);
         } else {
           txnUpdated = updateField(patch, "message", txn, "requiredInfoMessage", txnUpdated);
         }

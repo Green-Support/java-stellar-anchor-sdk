@@ -98,7 +98,7 @@ app_config:
   version: 1
 #
   # Database (h2):
-  # data.type: h2
+
   #
    Database (PostgreSQL):
    data.type: postgres

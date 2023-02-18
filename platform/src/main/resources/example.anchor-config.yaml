@@ -31,7 +31,9 @@ logging:
 #  ddl_auto: update
 
 data:
+
   type: postgres
+  server: localhost:5432
   url: jdbc:postgresql://localhost:5432/anchorplatform
   username: anchoruser
   password: Edenlife247
@@ -39,6 +41,8 @@ data:
   max_active_connections: 10
   flyway_enabled: true
   ddl_auto: update
+
+
 
 sep1:
   enabled: true

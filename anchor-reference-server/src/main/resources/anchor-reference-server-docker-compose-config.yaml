@@ -88,6 +88,7 @@ amqp.listener:
 #
 # Spring Data JDBC settings for Postgres
 
+
 spring.jpa.database: POSTGRESQL
 spring.jpa.show-sql: false
 spring.datasource.driver-class-name: org.postgresql.Driver
@@ -95,3 +96,4 @@ spring.datasource.url: jdbc:postgresql://localhost:5432/anchorplatform
 spring.datasource.username: anchoruser
 spring.datasource.password: Edenlife247
 spring.mvc.converters.preferred-json-mapper: gson
+
